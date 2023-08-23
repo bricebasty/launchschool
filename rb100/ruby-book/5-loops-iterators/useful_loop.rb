@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 i = 0
 loop do
-  i = i + 1
+  i += 1
   puts i
   break         # this will cause execution to exit the loop
 end

@@ -1,3 +1,3 @@
-while gets.chomp != "STOP"
-  puts "Nice"
-end
+# frozen_string_literal: true
+
+puts 'Nice' while gets.chomp != 'STOP'

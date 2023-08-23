@@ -1,8 +1,10 @@
-def say(words='hello')
-  puts words + '.'
+# frozen_string_literal: true
+
+def say(words = 'hello')
+  puts "#{words}."
 end
 
-say()
-say("hi")
-say("how are you")
+say
+say('hi')
+say('how are you')
 say("I'm fine")

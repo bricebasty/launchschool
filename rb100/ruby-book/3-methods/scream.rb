@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 def scream(words)
-  words = words + "!!!!"
+  words += '!!!!'
   puts words
   words
 end
 
-scream("Yippeee")
+scream('Yippeee')

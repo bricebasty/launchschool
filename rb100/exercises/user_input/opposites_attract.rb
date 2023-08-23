@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 def valid_number?(number_string)
-  Integer(number_string) rescue false
+  Integer(number_string)
+rescue StandardError
+  false
 end
 
 def read_number(prompt)
@@ -7,6 +11,7 @@ def read_number(prompt)
     puts prompt
     number = gets.chomp
     return number.to_i if valid_number?(number) && number.to_i != 0
+
     puts '>> Invalid input. Only non-zero integers are allowed.'
   end
 end

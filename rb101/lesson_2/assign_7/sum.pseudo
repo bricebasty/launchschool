@@ -1,0 +1,10 @@
+initialize 2 variables first_number and second_number
+add first_number and second_number and return the value
+
+START
+
+SET first_number = 0
+SET second_number = 0
+
+RETURN first_number + second_number
+

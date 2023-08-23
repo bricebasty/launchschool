@@ -1,1 +1,3 @@
-var = ''
+# frozen_string_literal: true
+
+''
