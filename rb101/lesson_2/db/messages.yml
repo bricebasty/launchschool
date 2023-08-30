@@ -1,0 +1,63 @@
+en:
+  main_menu: |
+    [c]┌─────────────────────┐[nc]
+    [c]│[nc]  Choose an action   [c]│[nc]
+    [c]├─────────────────────┤[nc]
+    [c]│[nc]  1  :  Run calc.rb  [c]│[nc]
+    [c]│[nc]  2  :  Run loan.rb  [c]│[nc]
+    [c]│[nc]  3  :  Run rps.rb   [c]│[nc]
+    [c]│[nc]  X  :  Quit app     [c]│[nc]
+    [c]└─────────────────────┘[nc]
+
+  calc_menu: |
+    [c]┌─────────────────────┐[nc]
+    [c]│[nc]  Choose an action   [c]│[nc]
+    [c]├─────────────────────┤[nc]
+    [c]│[nc]  +     : Add        [c]│[nc]
+    [c]│[nc]  -     : Subtract   [c]│[nc]
+    [c]│[nc]  *     : Multiply   [c]│[nc]
+    [c]│[nc]  /     : Divide     [c]│[nc]
+    [c]│[nc]  X     : Quit app   [c]│[nc]
+    [c]└─────────────────────┘[nc]
+
+  enter_number: |
+
+    [c]Enter a number[nc]
+  invalid_input: |
+
+    [c]Invalid input, try again![nc]
+
+  language: "What's your language? (en or fr)"
+  start_again: "[c]Do you want to start again?[nc]"
+  win: "[c]You won![nc]"
+  lose: "[c]You lost![nc]"
+  tie: "[c]It's a tie[nc]"
+  thank_you: "[c]Thank you for playing![nc]"
+fr:
+  main_menu: |
+    [c]┌─────────────────────┐[nc]
+    [c]│[nc] Choisis une action  [c]│[nc]
+    [c]├─────────────────────┤[nc]
+    [c]│[nc] 1 : Lancer calc.rb  [c]│[nc]
+    [c]│[nc] 2 : Lancer loan.rb  [c]│[nc]
+    [c]│[nc] 2 : Lancer rps.rb   [c]│[nc]
+    [c]│[nc] X : Quitter l'app   [c]│[nc]
+    [c]└─────────────────────┘[nc]
+
+  calc_menu: |
+    [c]┌─────────────────────┐[nc]
+    [c]│[nc] Choisis une action  [c]│[nc]
+    [c]├─────────────────────┤[nc]
+    [c]│[nc] + :  Addition       [c]│[nc]
+    [c]│[nc] - :  Soustraction   [c]│[nc]
+    [c]│[nc] * :  Multiplication [c]│[nc]
+    [c]│[nc] / :  Division       [c]│[nc]
+    [c]│[nc] X :  Quitter l'app  [c]│[nc]
+    [c]└─────────────────────┘[nc]
+
+  enter_number: |
+
+    [c]Entre un nombre[nc]
+  invalid_input: |
+
+    [c]Entrée invalide, réessaye ![nc]

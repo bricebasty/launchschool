@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 def meal
-  return 'Breakfast'
+  'Breakfast'
 end
 
 puts meal

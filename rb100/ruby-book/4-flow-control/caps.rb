@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def caps(str)
   str.length >= 10 ? str.upcase : str
 end

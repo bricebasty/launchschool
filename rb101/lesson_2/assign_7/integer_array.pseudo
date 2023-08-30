@@ -1,0 +1,8 @@
+initialize an array of integers
+Use select method for array_of_integers with index
+  - select only with index % 2 == 0
+Return the method.select
+
+SET array_of_integers = [1, 2, 3, 4, 5]
+
+array_of_integers.select.with_index { |_, i| i % 2 == 0 }

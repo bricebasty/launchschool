@@ -1,48 +1,61 @@
 # frozen_string_literal: true
 
-def add(a, b)
-  puts "\n#{a} + #{b} is #{a + b}\n\n"
+def display_calculator_menu
+  print_colorized_string(MESSAGES[LANGUAGE]['calc_menu'], 31)
+  print '> '
 end
 
-def substract(a, b)
-  puts "\n#{a} - #{b} is #{a - b}\n\n"
-end
+def get_operator_and_calculate(first_number, second_number)
+  operator = nil
 
-def multiply(a, b)
-  puts "\n#{a} x #{b} is #{a * b}\n\n"
-end
-
-def divide(a, b)
-  puts "\n#{a} / #{b} is #{a / b}\n\n"
-end
-
-def display_calc_menu
-  puts <<~MENU
-    Choose an action :
-    + : Add
-    - : Substract
-    x : Multiply
-    / : Divide
-  MENU
-end
-
-def calculator(a, b)
   loop do
-    display_calc_menu
-    input = Kernel.gets().chomp()
-    case input
-    when "+" then add(a, b); break
-    when "-" then substract(a, b); break
-    when "x" then multiply(a, b); break
-    when "/" then divide(a, b); break
-    else puts "Invalid input"
-    end
+    display_calculator_menu
+    operator = gets.chomp.downcase
+    break if %w[+ - * / x].include?(operator)
+
+    invalid_input_message
+  end
+  calculate_and_display_result(first_number, operator, second_number)
+end
+
+def get_user_number
+  input = nil
+  loop do
+    print_colorized_string(MESSAGES[LANGUAGE]['enter_number'], 34,
+                           print_user: true)
+    input = gets.chomp.downcase
+    break if number?(input)
+
+    invalid_input_message
+  end
+  input
+end
+
+def number?(str)
+  [str.to_f.to_s, str.to_i.to_s].include?(str)
+end
+
+def calculate_and_display_result(first_number, operator, second_number)
+  case operator
+  when '/' then result = first_number.to_f.send(operator, second_number.to_f)
+  when '+', '-', '*' then result = first_number.to_i.send(operator,
+                                                          second_number.to_i)
+  when 'x' then exit
+  end
+
+  puts "\n\e[32m\e[1m#{first_number} #{operator} #{second_number} = #{result}"
+  print "\e[0m"
+  sleep 0.2
+end
+
+def launch_calc_loop
+  loop do
+    get_operator_and_calculate(get_user_number, get_user_number)
+
+    print_colorized_string(MESSAGES[LANGUAGE]['start_again'], 35,
+                           print_user: true)
+
+    answer = gets.chomp
+    break unless answer.downcase.start_with?('y')
   end
 end
-
-def input_number
-  puts 'Input number'
-  print '> '
-  Kernel.gets().chomp().to_i
-end
-

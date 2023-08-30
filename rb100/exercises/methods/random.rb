@@ -1,5 +1,7 @@
-names = ['Dave', 'Sally', 'George', 'Jessica']
-activities = ['walking', 'running', 'cycling']
+# frozen_string_literal: true
+
+names = %w[Dave Sally George Jessica]
+activities = %w[walking running cycling]
 
 def name(array)
   array.sample

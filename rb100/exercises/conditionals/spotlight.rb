@@ -1,4 +1,6 @@
-stoplight = ['green', 'yellow', 'red'].sample
+# frozen_string_literal: true
+
+stoplight = %w[green yellow red].sample
 
 case stoplight
 when 'green'

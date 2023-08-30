@@ -1,0 +1,8 @@
+initialize a string parameter and a x counter
+
+for each character in the string
+  add to the count of x if it's a x
+  return index of current character   if count of x == 3
+END
+
+return nil if count of x < 3

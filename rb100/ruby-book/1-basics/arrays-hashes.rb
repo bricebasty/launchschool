@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 movies = {
   movie: 1943,
   movie2: 1975,
@@ -8,4 +10,4 @@ movies = {
 
 puts movies.values
 
-puts dates = movies.values.to_a
+puts movies.values.to_a

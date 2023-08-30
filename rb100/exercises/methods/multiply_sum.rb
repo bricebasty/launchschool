@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def add(a, b)
   a + b
 end
@@ -5,7 +7,6 @@ end
 def multiply(a, b)
   a * b
 end
-
 
 puts add(2, 2) == 4
 puts add(5, 4) == 9

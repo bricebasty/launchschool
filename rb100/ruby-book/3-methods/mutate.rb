@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 a = [1, 2, 3]
 
 # Example of a method definition that mutates its argument permanently

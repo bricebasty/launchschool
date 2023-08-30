@@ -1,3 +1,12 @@
+# frozen_string_literal: true
+
 process_the_loop = [true, false].sample
 
-process_the_loop ? loop { puts "The loop was processed"; break } : puts("The loop wasn't processed!")
+if process_the_loop
+  loop do
+    puts 'The loop was processed'
+    break
+  end
+else
+  puts("The loop wasn't processed!")
+end

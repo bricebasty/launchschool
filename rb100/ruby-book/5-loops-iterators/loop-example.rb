@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 loop do
-  puts "This will keep printing until you hit Ctrl + c"
+  puts 'This will keep printing until you hit Ctrl + c'
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 number = 7
 
 if number

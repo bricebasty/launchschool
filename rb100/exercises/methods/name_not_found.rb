@@ -1,4 +1,6 @@
-def assign_name(name='Bob')
+# frozen_string_literal: true
+
+def assign_name(name = 'Bob')
   name
 end
 

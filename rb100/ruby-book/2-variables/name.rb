@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 puts 'First Name?'
 first_name = gets.chomp
 puts 'Last Name?'

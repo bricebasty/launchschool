@@ -1,3 +1,5 @@
-arr = ["laboratory", "experiment", "Pans Labyrinth", "elaborate", "polar bear"]
+# frozen_string_literal: true
 
-p arr.select {_1.include?("lab")}
+arr = ['laboratory', 'experiment', 'Pans Labyrinth', 'elaborate', 'polar bear']
+
+p arr.select { _1.include?('lab') }

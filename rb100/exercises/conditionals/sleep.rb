@@ -1,8 +1,10 @@
-status = ['awake', 'tired'].sample
+# frozen_string_literal: true
+
+status = %w[awake tired].sample
 var = if status == 'awake'
-        "Be Productive"
+        'Be Productive'
       else
-        "Go to Sleep"
+        'Go to Sleep'
       end
 
 p var

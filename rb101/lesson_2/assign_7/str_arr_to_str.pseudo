@@ -1,0 +1,8 @@
+initialize an array of strings
+join all the strings together
+
+START
+
+SET array_of_strings
+
+RETURN array_of_strings joined
