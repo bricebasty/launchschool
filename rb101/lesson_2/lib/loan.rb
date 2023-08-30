@@ -15,7 +15,7 @@ def get_loan_amount
   loop do
     print_string("What's your loan's amount?", print_user: true)
     loan_amount = gets.chomp
-    if loan_amount.empty?() || loan_amount.to_f() < 0
+    if loan_amount.empty? || loan_amount.to_f < 0
       print_colorized_string(MESSAGES[LANGUAGE]['invalid_input'], 31)
     else
       return loan_amount.to_f
@@ -27,7 +27,7 @@ def get_apr
   loop do
     print_string("What's the interest rate? (in percentage)", print_user: true)
     apr = gets.chomp
-    if apr.empty?() || apr.to_f() < 0
+    if apr.empty? || apr.to_f < 0
       print_colorized_string(MESSAGES[LANGUAGE]['invalid_input'], 31)
     else
       return convert_apr(apr.to_f)
@@ -39,7 +39,7 @@ def get_loan_duration
   loop do
     print_string("What's your loan's duration? (in years)", print_user: true)
     loan_duration = gets.chomp
-    if loan_duration.empty?() || loan_duration.to_i() < 0
+    if loan_duration.empty? || loan_duration.to_i < 0
       print_colorized_string(MESSAGES[LANGUAGE]['invalid_input'], 31)
     else
       return convert_years_to_months(loan_duration.to_i)
