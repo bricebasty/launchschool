@@ -19,35 +19,51 @@
 #           23  =>  11,
 #           30  =>   2 }
 
-# Input
-#  users = {  1  =>  93,
-#           10  =>  55,
-#           15  =>  30,
-#           20  =>  19,
-#           23  =>  11,
-#           30  =>   2
-#
-# Output
-# 20
-#
-# For every element in the hash,
-# map a new hash
-# calculate the diffrenrece between rank and honor
-# return the smallest difference into variable
-# search through the hash for the key with the difference between k - v equal to the difference variable
-#
-#
+=begin
+PROBLEM
+----------------
+INPUT: Hash of ranks and honor
+OUTPUT: Rank of the person with closest score to honor
+
+RULES:
+- If two come closest, return the one with lowest rank
+- Hash won't necessarily contain consecutive rank numbers
+
+EXAMPLES
+----------------
+BEGIN: {  1  =>  93, 10  =>  55, 15  =>  30, 20  =>  19, 23  =>  11, 30  =>  2 }
+=> 20 => 19
+END: 20
+
+DATA STRUCTURES
+----------------
+BEGIN: Hash
+INBETWEEN: Hash
+END: Integer
+
+
+ALGORITHM
+----------------
+
+- Select the element(s) with the lowest difference between rank and honor
+  - create an array with the difference of each rank and honor with the key
+  - select in the array the element with the lowest difference
+  - find the element with first element being the lowest and then the second element being the lowest
+- Select and return the lowest rank
+
+=end
 
 def nexus(users)
-  difference = users.map { |k, v| (k - v).positive? ? k - v : v - k }.min
-  users.select { |k, v| ((k - v).positive? ? k - v : v - k) == difference }.keys.first
+  sorted = users.sort_by { |k, v| [(k - v).abs, k] }[0][0]
 end
+
 
 
 users = {  1  =>  93,
           10  =>  55,
           15  =>  30,
           20  =>  19,
+          19 => 20,
           23  =>  11,
           30  =>   2 }
-nexus(users)
+p nexus(users)

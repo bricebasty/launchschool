@@ -1,0 +1,14 @@
+['arc', 'bat', 'cape', 'ants', 'cap'].sort { |a, b| puts a, b; a <=> b }
+
+# arc
+# bat
+# cap
+# ants
+# cape
+
+
+p [['a', 'cat', 'b', 'c'], ['b', 2], ['a', 'car', 'd', 3], ['a', 'car', 'd']].sort
+['b', 2]
+['a', 'car', 'd']
+['a', 'car', 'd', 3]
+['a', 'cat', 'b', 'c']
