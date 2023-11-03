@@ -66,10 +66,11 @@ Capitalize
 =end
 
 def title_case(title, minor_words = '')
-  title.split.map.with_index do |e, i|
+  minor_array = minor_words.downcase.split
+  title.capitalize.split.map.with_index do |e, i|
     if i == 0
-      e.capitalize
-    elsif minor_words.split.any? { |word| word.downcase == e.downcase }
+      e
+    elsif minor_array.any? { |word| word == e.downcase }
       e.downcase
     else
       e.capitalize
