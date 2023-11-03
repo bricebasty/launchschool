@@ -25,11 +25,11 @@ def remove_tests(var)
 end
 
 tests = <<~TEST
-Test.assert_equals(persistence(39),3)
-Test.assert_equals(persistence(4),0)
-Test.assert_equals(persistence(25),2)
-Test.assert_equals(persistence(999),4)
-Test.assert_equals(persistence(444),3)
+Test.assert_equals(title_case(''), '')
+Test.assert_equals(title_case('a clash of KINGS', 'a an the of'), 'A Clash of Kings')
+Test.assert_equals(title_case('THE WIND IN THE WILLOWS', 'The In'), 'The Wind in the Willows')
+Test.assert_equals(title_case('the quick brown fox'), 'The Quick Brown Fox')
+
 TEST
 
 remove_tests(tests)
