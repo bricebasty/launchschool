@@ -25,13 +25,11 @@ def remove_tests(var)
 end
 
 tests = <<~TEST
-Test.assert_equals(is_anagram('Creative', 'Reactive'), true, 'The word Creative is an anagram of Reactive')
-Test.assert_equals(is_anagram("foefet", "toffee"), true, 'The word foefet is an anagram of toffee')
-Test.assert_equals(is_anagram("Buckethead", "DeathCubeK"), true, 'The word Buckethead is an anagram of DeathCubeK')
-Test.assert_equals(is_anagram("Twoo", "WooT"), true, 'The word Twoo is an anagram of WooT')
-Test.assert_equals(is_anagram("dumble", "bumble"), false, 'Characters do not match for test case dumble, bumble')
-Test.assert_equals(is_anagram("ound", "round"), false, 'Missing characters for test case ound, round')
-Test.assert_equals(is_anagram("apple", "pale"), false, 'Same letters, but different count')
+Test.assert_equals(persistence(39),3)
+Test.assert_equals(persistence(4),0)
+Test.assert_equals(persistence(25),2)
+Test.assert_equals(persistence(999),4)
+Test.assert_equals(persistence(444),3)
 TEST
 
 remove_tests(tests)
