@@ -8,3 +8,10 @@ gem 'dotenv'
 gem 'pry'
 gem 'rspec'
 gem 'rubocop'
+
+gem 'matrix'
+
+gem 'sorbet'
+gem 'tapioca', require: false, group: :development
+
+gem 'watchman'

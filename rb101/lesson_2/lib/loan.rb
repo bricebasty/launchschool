@@ -62,6 +62,7 @@ def calculate_and_display_loan_details(loan_amount, monthly_interest_rate,
 end
 
 def launch_loan_loop
+  p false.object_id
   loop do
     calculate_and_display_loan_details(get_loan_amount,
                                        get_apr,
