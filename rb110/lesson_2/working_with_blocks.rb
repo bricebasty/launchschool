@@ -1,3 +1,5 @@
+# typed: true
+
 # my_arr = [[18, 7], [3, 12]].each do |arr| # arr = [3, 12]
 #   arr.each do |num| # num = 12
 #     if num > 5 # 12 > 5

@@ -1,14 +1,10 @@
-['arc', 'bat', 'cape', 'ants', 'cap'].sort { |a, b| puts a, b; a <=> b }
+# typed: true
 
-# arc
-# bat
-# cap
-# ants
-# cape
+extend T::Sig
 
+sig { params(array: T::Array[String]).returns(T::Array[String]) }
+def lil_me(array)
+  array.sort { |a, b| (b <=> a) || 0 }
+end
 
-p [['a', 'cat', 'b', 'c'], ['b', 2], ['a', 'car', 'd', 3], ['a', 'car', 'd']].sort
-['b', 2]
-['a', 'car', 'd']
-['a', 'car', 'd', 3]
-['a', 'cat', 'b', 'c']
+lil_me(['arc', 'bat', 'cape', 'ants', 'cap'])

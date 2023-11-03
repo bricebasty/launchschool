@@ -39,7 +39,6 @@
 #   todo[:completed] = true
 # end
 
-
 # a = 'hi'
 # english_greetings = ['hello', a, 'good morning'] # ['hello', 'hi', 'good morning']
 

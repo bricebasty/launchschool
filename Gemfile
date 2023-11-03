@@ -10,3 +10,8 @@ gem 'rspec'
 gem 'rubocop'
 
 gem 'matrix'
+
+gem 'sorbet'
+gem 'tapioca', require: false, group: :development
+
+gem 'watchman'
