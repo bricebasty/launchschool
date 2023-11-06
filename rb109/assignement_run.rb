@@ -1,14 +1,33 @@
-# p (1...20).sum { |e| (e % 3).zero? || (e % 5).zero? ? e : 0 }
-
-# final_sum = 0
-
-# (1...10).each do |n|
-#   puts "Nombre: #{n}"
-#   if n % 3 == 0 || n % 5 == 0 # is_multiple_of_3_or_5?(n)
-#     puts "Somme finale: #{final_sum += n}"
+# def scramble(s1,s2)
+#   s1_counts = Hash.new(0)
+#   s1.each_char { |c| s1_counts[c] += 1 }
+#   s2.each_char do |c|
+#     return false if s1_counts[c] <= 0
+#     s1_counts[c] -= 1
 #   end
+
+#   true
 # end
 
-p (1...10).each_with_object([]) { |e, a| a << e }
-p (1..10 - 2).each_with_object([]) { |e, a| a << e }
-p (1..10).each_with_object([]) { |e, a| a << e }
+# puts 'Test result is ' + (scramble('rkqodlw',           'world'     ) == true).to_s.upcase
+# p scramble('rkqodlw',           'world'     ) # true
+# puts 'Test result is ' + (scramble('cedewaraaossoqqyt', 'codewars'  ) == true).to_s.upcase
+# p scramble('cedewaraaossoqqyt', 'codewars'  ) # true
+# puts 'Test result is ' + (scramble('katas',             'steak'     ) == false).to_s.upcase
+# p scramble('katas',             'steak'     ) # false
+# puts 'Test result is ' + (scramble('scriptjava',        'javascript') == true).to_s.upcase
+# p scramble('scriptjava',        'javascript') # true
+# puts 'Test result is ' + (scramble('scriptingjava',     'javascript') == true).to_s.upcase
+# p scramble('scriptingjava',     'javascript') # true
+
+
+def extend_greeting(greeting)
+  greeting + " there"
+end
+
+greeting = "hi"
+str = greeting
+greeting = extend_greeting(greeting)
+
+puts greeting # output: "hi there"
+puts str
