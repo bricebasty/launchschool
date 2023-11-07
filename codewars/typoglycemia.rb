@@ -24,125 +24,145 @@
 # ignore capitalisation
 # for reference: http://en.wikipedia.org/wiki/Typoglycemia
 #
-# PROBLEM
-# ---------
-# Given a string with words, return a string with each word with it's first and
-# last letter unchanged, but the letters in between them are sorted alphabetically.
-#
-# RULES
-# ---------
-# - Do it for every word in a multi word string
-# - Words are separated by spaces only
-# - Do not change punctuation's order :  - ' , .
-#
-# EXAMPLES
-# ----------
-# "professionals"
-# "ps" "rofessional"
-# "ps" "aefilnoorss"
-# "paefilnoorsss"
-#
-# "card-carrying"
-# "cg" "ardcarryin" "char: -, index: 4"
-# "cg" "aacdinrrry" "char: -, index: 4"
-# "caac-dinrrryg"
-#
-# "shan't"
-# "st" "han'"
-# ""
-# "sahn't"
-#
-# INPUT: "lor'em ips'um dol'or sit amet, con-sect-etur adipi'scing elit."
-#
-# ["lor'em", "ips'um", "dol'or", "sit", "amet,", "con-sect-etur", "adipi'scing", "elit."]
-#
-# "lor'em" OK
-# "or'e" OK
-# ["o", "r", "'", "e"] OK
-# [["'", 2]] special chars OK
-# ["o", "r", "e"] OK
-# ["e", "o", "r"] OK
-# ["e", "o", "'", "r"]
-# leo'rm
+=begin
+PROBLEM
+---------
+INPUT: String with words, return a string with each word with it's first and
+OUTPUT: String with each word have first and last letter unchanged letters in between are sorted alphabetically.
 
-# cr
-# on-sect-etu
-# [["-", 2], ["-", 7]]
-# onsectetu
-# ceenosttu
-# ce-enos-ttu
-# cce-enos-ttur
-#
-# -dc--ba.
-# dc--ba
-# c--b
+RULES
+---------
+- Do it for every word in a multi word string
+- Words are separated by spaces only
+- Do not change punctuation's order :  - ' , .
+- If punctuation is first or last, go to the next letter
 
-# OUTPUT: "leo'rm ips'um dlo'or sit aemt, cce-enos-ttur acdii'inpsg eilt."
-#
-#
-# "you've gotta dance .pramt"
-# "you've" "gotta" "dance"
+EXAMPLES
+----------------
+BEGIN: "professionals"
+=> ["p", "s"], ["r", "o", "f", "e", "s", "s", "i", "o", "n", "a", "l"]
+=> ["p", "s"], ["a", "e", "f", "i", "l", "n", "o", "o", "r", "s", "s"
+=> ["a", "e", "f", "i", "l", "n", "o", "o", "r", "s", "s"].unshift("p").push("s").join
+END: "paefilnoorsss"
 
-# ["youv'e", "gotta", "dacne" ]
-# "you've gotta dacne"
-#
-# DATA STRUCTURES
-# ---------------
-# INPUT: STRING
-# INBETWEEN: ARRAY and HASH
-# OUTPUT: STRING
-#
-# NOTES
-# -----
-# range?
-# map? or each
-# first and last
-# sort
-#
-# ALGORITHM
-# ---------
-# Split the words string by space
-# On each string with an array object
-# - in the 1st index of string to second last index in string put the chars into array
-#   - for each element of this array
-#    - create array with element and index for each allowed special character then compact it and store it
-#   - then delete the special characters from the array
-#   - then sort the array
-#   - then for each element in the special char array, add char at index in the sorted array
-#   - now join the complete array
-# - add the complete array at index 1 in s[0] and s[-1] string
+BEGIN: 'card-carrying'
+=> ["c", "g"], ["a", "r", "d", "-", "c", "a", "r", "r", "y", "i", "n"]
+=> ["c", "g"], ["a", "r", "d", "c", "a", "r", "r", "y", "i", "n"], {"-"=>3}
+=> ["c", "g"], ["a", "a", "c", "d", "i", "n", "r", "r", "r", "y"], {"-"=>3}
+=> arr = ["c", "a", "a", "c", "d", "i", "n", "r", "r", "r", "y", "g"], {"-"=>3}
+=> {"-"=>3}.each { |k, v| arr.insert(v, k) }
+END:
 
-# match the first alphabetic character to the last alphabetic character
+BEGIN: ---d-cba---
+=>
+=> ["---", "---"], ["d", "a"], ["-", "c", "b"], OK
+=> ["---", "---"], ["d", "a"], ["c", "b"], {"-"=> 0} OK
+=> ["---", "---"], ["d", "a"], ["b", "c"], {"-"=> 0} OK
+=> ["---", "---"], ["d", "a"], ["-", "b", "c"] OK
+=> ["---", "d", "-", "b", "c", "a", "---"]
+END: ---d-bca---
+
+DATA STRUCTURES
+----------------
+BEGIN:
+=>
+END:
+
+NOTES:
+
+REGEXES:
+--------
+Premier charactères et dernier char : /(?<!\S)([-',\.]+)|([-',\.]+)(?!\S)/ -> flatten.comapct
+
+Premiere lettre et derniere apres char: /(?<!\S)(?:[-',\.]*)([a-z])|([a-z])(?:[-',\.]*)(?!\S)/i   -> .flatten.compact
+
+Tous char entre: string.scan(/(?<!\S)(?:[-',\.]*)(?:[a-z])(.+)(?:[a-z])(?:[-',\.]*)(?!\S)/i) -> .flatten
+
+ALGORITHM
+----------------
+
+Split words
+map each of words, element word
+- create a variable `first_and_last_chars` for holding the first and last chars
+- create a variable `first_and_last_letters` for holding the first and last letters
+- create a variable `chars_in_between`
+- create a variable `positions_of_special_chars` for holding the keys of special chars and values of their index
+-- for each char in `chars_in_between` with object {} `hash` with index i
+--- hash[char] = i
+--- chars_in_between delete at index i
+-- sort chars in between
+- for each key value in `positions_of_special chars` , key k, value v
+-- insert in `chars_in_between` at index v, string k
+
+Create an array and populate with
+- first element of `first_and_last_chars`
+- first element of `first_and_last_letters`
+- chars_in between
+- last element of `first_and_last_letters`
+- last element of `first_and_last_chars`
+join this array
+
+=end
+
 
 def scramble_words(words)
   words.split.map do |word|
-    sorted_inner = sort_word(word)
+    first_and_last_chars = word.scan(/(?<!\S)([-',\.]+)|([-',\.]+)(?!\S)/).flatten
+    first_and_last_letters = word.scan(/(?<!\S)(?:[-',\.]*)([a-z])|([a-z])(?:[-',\.]*)(?!\S)/i).flatten.compact
+    chars_in_between = word.scan(/(?<!\S)(?:[-',\.]*)(?:[a-z])(.+)(?:[a-z])(?:[-',\.]*)(?!\S)/i).join.chars
 
-    word[1..-2].each_char.with_index do |char, idx|
-      sorted_inner.insert(idx, char) if char.match(/[-',.]/)
+    positions_of_special_chars = chars_in_between.each_with_object({}).with_index do |(c, h), i|
+      if c.match?(/[-'\,\.]/)
+        h[c] = i
+        chars_in_between.delete_at(i)
+      end
     end
-
-    word[0] + sorted_inner + (word.size > 1 ? word[-1] : '')
-  end.join(' ')
+    chars_in_between.sort!
+    positions_of_special_chars.each { |k, v| chars_in_between.insert(v, k) }
+    [first_and_last_chars[0], first_and_last_letters[0], chars_in_between, first_and_last_letters[1], first_and_last_chars[1]].join
+  end.join(" ")
 end
 
-def sort_word(word)
-  word.match(/[a-z]/).to_s.gsub(/[-',.]/, '').chars.sort.join
+def scramble_word(word)
+
 end
 
+# puts 'Test result is ' + (scramble_words('professionals') == 'paefilnoorsss').to_s.upcase
+# p scramble_words('professionals') # 'paefilnoorsss', 'The first and last letters of a word should reamin in place with the inner letters sorted'
 
-puts scramble_words('-dcba') #  '-dbca'
-puts scramble_words('dcba.') #  'dbca.'
+# puts 'Test result is ' + (scramble_words('i') == 'i').to_s.upcase
+# p scramble_words('i') # 'i', 'Must handle single charater words'
+
+# puts 'Test result is ' + (scramble_words('') == '').to_s.upcase
+# p scramble_words('') # '', 'Must handle empty strings'
+
+# puts 'Test result is ' + (scramble_words('me') == 'me').to_s.upcase
+# p scramble_words('me') # 'me', 'Must handle 2 charater words'
+
+# puts 'Test result is ' + (scramble_words('you') == 'you').to_s.upcase
+# p scramble_words('you') # 'you', 'Must handle 3 charater words'
+
+# puts 'Test result is ' + (scramble_words('card-carrying') == 'caac-dinrrryg').to_s.upcase
+# p scramble_words('card-carrying') # 'caac-dinrrryg', 'Only spaces separate words and punctuation should remain at the same place as it started'
+
+# puts 'Test result is ' + (scramble_words("shan't") == "sahn't").to_s.upcase
+# p scramble_words("shan't") # "sahn't", 'Punctuation should remain at the same place as it started'
+
+# puts 'Test result is ' + (scramble_words('-dcba') == '-dbca').to_s.upcase
+# p scramble_words('-dcba') # '-dbca', 'Must handle special character at the start'
+
+# puts 'Test result is ' + (scramble_words('dcba.') == 'dbca.').to_s.upcase
+# p scramble_words('dcba.') # 'dbca.', 'Must handle special character at the end'
+
+# puts 'Test result is ' + (scramble_words("you've gotta dance like there's nobody watching, love like you'll never be hurt, sing like there's nobody listening, and live like it's heaven on earth.") == "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth.").to_s.upcase
+# p scramble_words("you've gotta dance like there's nobody watching, love like you'll never be hurt, sing like there's nobody listening, and live like it's heaven on earth.") # "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth.", 'Must handle a full sentence'
 
 
-p scramble_words('professionals') #  'paefilnoorsss', 'The first and last letters of a word should reamin in place with the inner letters sorted'
-p scramble_words('i') #  'i', 'Must handle single charater words'
-p scramble_words('') #  '', 'Must handle empty strings'
-p scramble_words('me') #  'me', 'Must handle 2 charater words'
-p scramble_words('you') #  'you', 'Must handle 3 charater words'
-p scramble_words('card-carrying') #  'caac-dinrrryg', 'Only spaces separate words and punctuation should remain at the same place as it started'
-p scramble_words("shan't") #  "sahn't", 'Punctuation should remain at the same place as it started'
-p scramble_words('-dcba') #  '-dbca', 'Must handle special character at the start'
-p scramble_words('dcba.') #  'dbca.', 'Must handle special character at the end'
-p scramble_words("leo'rm ips'um dlo'or sit aemt, cce-enos-ttur acdii'inpsg eilt.")
-p scramble_words("you've gotta dance like there's nobody watching, love like you'll never be hurt, sing like there's nobody listening, and live like it's heaven on earth.") #  "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth.", 'Must handle a full sentence'
+# Create a test sentence and a test word
+test_sentence = "The quick brown fox jumps over the lazy dog."
+require 'benchmark'
+# Benchmark
+Benchmark.bm do |x|
+  x.report("scramble_words: ") { 1000.times { scramble_words(test_sentence) } }
+  x.report("scramble_word: ")  { 1000.times { scramble_words_2(test_sentence) } }
+end
