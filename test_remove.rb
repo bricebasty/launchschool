@@ -5,6 +5,7 @@ def puts_in_console(line, test_str, arg_str)
   puts  line.sub(test_str, "p ")
             .sub(arg_str, ") # ")
             .sub(/[);]+$/, "")
+  puts
 end
 
 def remove_tests(var)
@@ -19,29 +20,18 @@ def remove_tests(var)
 end
 
 tests = <<~TEST
-describe('static tests') do
-  it('basic recipes') do
-    Test.assert_equals(cakes({"flour"=>500, "sugar"=>200, "eggs"=>1},{"flour"=>1200, "sugar"=>1200, "eggs"=>5, "milk"=>200}), 2)
-    Test.assert_equals(cakes({"cream"=>200, "flour"=>300, "sugar"=>150, "milk"=>100, "oil"=>100},{"sugar"=>1700, "flour"=>20000, "milk"=>20000, "oil"=>30000, "cream"=>5000}),11)
+describe("Basic tests") do
+  Test.assert_equals(scramble_words('professionals'), 'paefilnoorsss', 'The first and last letters of a word should reamin in place with the inner letters sorted')
+  Test.assert_equals(scramble_words('i'), 'i', 'Must handle single charater words')
+  Test.assert_equals(scramble_words(''), '', 'Must handle empty strings')
+  Test.assert_equals(scramble_words('me'), 'me', 'Must handle 2 charater words')
+  Test.assert_equals(scramble_words('you'), 'you', 'Must handle 3 charater words')
+  Test.assert_equals(scramble_words('card-carrying'), 'caac-dinrrryg', 'Only spaces separate words and punctuation should remain at the same place as it started')
+  Test.assert_equals(scramble_words("shan't"), "sahn't", 'Punctuation should remain at the same place as it started')
+  Test.assert_equals(scramble_words('-dcba'), '-dbca', 'Must handle special character at the start')
+  Test.assert_equals(scramble_words('dcba.'), 'dbca.', 'Must handle special character at the end')
+  Test.assert_equals(scramble_words("you've gotta dance like there's nobody watching, love like you'll never be hurt, sing like there's nobody listening, and live like it's heaven on earth."), "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth.", 'Must handle a full sentence')
   end
-
-  it('missing ingredient') do
-    Test.assert_equals(cakes({"apples"=>3, "flour"=>300, "sugar"=>150, "milk"=>100, "oil"=>100},{"sugar"=>500, "flour"=>2000, "milk"=>2000}),0)
-  end
-
-  it('not enough ingredients') do
-    Test.assert_equals(cakes({"apples"=>3, "flour"=>300, "sugar"=>150, "milk"=>100, "oil"=>100},{"sugar"=>500, "flour"=>2000, "milk"=>2000, "apples"=>15, "oil"=>20}),0)
-  end
-
-  it('no ingredients available') do
-    Test.assert_equals(cakes({"eggs"=>4, "flour"=>400},{}),0)
-  end
-
-  it('exactly enough ingredients for 1 cake') do
-    Test.assert_equals(cakes({"cream"=>1, "flour"=>3, "sugar"=>1, "milk"=>1, "oil"=>1, "eggs"=>1},{"sugar"=>1, "eggs"=>1, "flour"=>3, "cream"=>1, "oil"=>1, "milk"=>1}), 1)
-  end
-
-end
 TEST
 
 remove_tests(tests)
