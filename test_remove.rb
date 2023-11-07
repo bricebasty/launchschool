@@ -1,35 +1,37 @@
-# "Test.assert_equals(to_camel_case(''), '', 'An empty string was provided but not returned')"
-# "Test.assert_equals(to_camel_case('the_stealth_warrior'), 'theStealthWarrior', 'to_camel_case('the_stealth_warrior') did not return correct value')"
-# "Test.assert_equals(to_camel_case('The-Stealth-Warrior'), 'TheStealthWarrior', 'to_camel_case('The-Stealth-Warrior') did not return correct value')"
-# "Test.assert_equals(to_camel_case('A-B-C'), 'ABC', 'to_camel_case('A-B-C') did not return correct value')"
-
-# Remove Test.assert_equals(
-# Remove ,  and replace it by #
-# Remove the last character in the string
-#
-# Test.assert_equals(to_camel_case(''), '', 'An empty string was provided but not returned')
-# to_camel_case(''), '', 'An empty string was provided but not returned')
+def puts_in_console(line, test_str, arg_str)
+  puts  line.sub(test_str, "puts 'Test result is ' + (")
+            .sub(arg_str, ") == ")
+            .sub(/[);]+$\n/, "") << ").to_s.upcase"
+  puts  line.sub(test_str, "p ")
+            .sub(arg_str, ") # ")
+            .sub(/[);]+$/, "")
+  puts
+end
 
 def remove_tests(var)
   var.each_line do |line|
-    # Use regex to capture the method call and the expected result
-    match_data = line.match(/Test\.assert_equals\((.*?),\s*(.*?)(,\s*".*")?\)/)
-    if match_data
-      method_call = match_data[1]
-      expected_result = match_data[2]
-      comment = match_data[3] ? match_data[3].gsub(/^,\s*"/, '').chomp('"') : ""
-      comment_text = comment.empty? ? "" : " - \"#{comment}\""
-      puts "p #{method_call} # => #{expected_result}#{comment_text}"
+    case line
+    when /Test\.assert_equals/
+      puts_in_console(line, /Test\.assert_equals\(/, /\)\,\s?/)
+    when /expect\(/
+      puts_in_console(line, /expect\(/, /\)\)\.to\seq\(\s?/)
     end
   end
 end
 
 tests = <<~TEST
-Test.assert_equals(title_case(''), '')
-Test.assert_equals(title_case('a clash of KINGS', 'a an the of'), 'A Clash of Kings')
-Test.assert_equals(title_case('THE WIND IN THE WILLOWS', 'The In'), 'The Wind in the Willows')
-Test.assert_equals(title_case('the quick brown fox'), 'The Quick Brown Fox')
-
+describe("Basic tests") do
+  Test.assert_equals(scramble_words('professionals'), 'paefilnoorsss', 'The first and last letters of a word should reamin in place with the inner letters sorted')
+  Test.assert_equals(scramble_words('i'), 'i', 'Must handle single charater words')
+  Test.assert_equals(scramble_words(''), '', 'Must handle empty strings')
+  Test.assert_equals(scramble_words('me'), 'me', 'Must handle 2 charater words')
+  Test.assert_equals(scramble_words('you'), 'you', 'Must handle 3 charater words')
+  Test.assert_equals(scramble_words('card-carrying'), 'caac-dinrrryg', 'Only spaces separate words and punctuation should remain at the same place as it started')
+  Test.assert_equals(scramble_words("shan't"), "sahn't", 'Punctuation should remain at the same place as it started')
+  Test.assert_equals(scramble_words('-dcba'), '-dbca', 'Must handle special character at the start')
+  Test.assert_equals(scramble_words('dcba.'), 'dbca.', 'Must handle special character at the end')
+  Test.assert_equals(scramble_words("you've gotta dance like there's nobody watching, love like you'll never be hurt, sing like there's nobody listening, and live like it's heaven on earth."), "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth.", 'Must handle a full sentence')
+  end
 TEST
 
 remove_tests(tests)
