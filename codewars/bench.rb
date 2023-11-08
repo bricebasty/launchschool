@@ -1,29 +1,53 @@
 require 'benchmark'
 
-def f1(s)
-  i = (s + s).index(s, 1)
-  [s[0, i], s.size / i]
+def get_char_count_v2(str)
+  str = str.downcase.gsub(/\W/, '')
+  frequencies = str.chars.uniq.group_by { |char| str.count(char) }
+  frequencies.transform_values(&:sort)
 end
 
-def f2(s)
-  s=~/^(.+?)\1+/?[$1,s.size/$1.size]:[s,1]
-end
+def get_char_count_v3(str)
+  chars = str.downcase.delete("^a-z0-9").chars.sort
 
-def f3(s)
-  i = 0
-  substring = s[0..i]
-  until substring * (s.size / substring.size) == s
-    i += 1
-    substring = s[0..i]
+  occurences = Hash.new(0)
+  chars.each do |chars|
+    occurences[chars] += 1
   end
-  [substring, s.size / substring.size]
+
+  results = {}
+  occurences.each_value do |value|
+    results[value] = []
+  end
+
+  occurences.each do |key, value|
+    results[value] << key
+  end
+
+  results.to_a.sort{|a, b| b <=> a }.to_h
 end
 
-test_string = "ababababab"
 
-n = 1000_000
-Benchmark.bm do |x|
-  x.report("f1:") { n.times { f1(test_string) } }
-  x.report("f2:") { n.times { f2(test_string) } }
-  x.report("f3:") { n.times { f3(test_string) } }
+def get_char_count_v5(string)
+  filtered_string = string.downcase.gsub(/[^0-9a-z]/, "")
+
+  count_hash = filtered_string.chars.each_with_object({}) do |char, hash|
+    next if hash.values.flatten.include?(char)
+
+    count_of_char = filtered_string.count(char)
+
+    hash[count_of_char] = (hash[count_of_char] || []) + [char]
+  end
+
+  count_hash.each_value(&:sort!).sort { |a, b| b <=> a}.to_h
+end
+
+# Create a test string
+test_string = "This is a test string with 123 numbers and symbols *&^%$#" * 1000
+
+# Benchmark the methods
+Benchmark.bmbm do |x|
+  x.report("v2:") { 100.times { get_char_count_v2(test_string) } }
+  x.report("v3:") { 100.times { get_char_count_v3(test_string) } }
+  x.report("v4:") { 100.times { get_char_count_v4(test_string) } }
+  x.report("v5:") { 100.times { get_char_count_v5(test_string) } }
 end
