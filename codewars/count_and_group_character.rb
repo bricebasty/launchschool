@@ -19,44 +19,62 @@ RULES:
 EXAMPLES
 ----------------
 BEGIN: "Mississippi"
-=>
-=>
-END: {4=>["i", "s"], 2=>["p"], 1=>["m"]}
+=> "mississipi"
+=> nombre de m : 1
+=> { 1 => ["m"] }
+=> nombre de i : 4
+=> { 4 => ["i"], 1 => ["m"] }
+=> nombre de s : 4
+=> { 4 => ["i", "s"], 1 => ["m"] }
+=> nombre de p : 2
+=> { 4 => ["i", "s"], 2 => ["p"], 1 => ["m"] }
+END: {4=>["i", "s"], 2=>["p"], 1=>["m"]
 
 DATA STRUCTURES
 ----------------
 BEGIN: String
-=> Arrays and Strings
+=>
 END: Hash with integers and arrays of string(s)
 
 NOTES:
-tally
-group_by
+
 
 ALGORITHM
 ----------------
+Downcase the string
+For each character `char` in the string with object `hash` {}
+- Next iteration if `char` is in values of `hash`
+- Count the number of `char` in the string
+- Reassigne in `hash` the key `count` with value [`char`]
 
-Take the first element in each array
-4=>[
-  ["i", 4], ["s", 4]
-]
-4=>["i", "s"]
+For each value in the hash, do a sort
+Sort by key the hash
 
 =end
 
 def get_char_count(string)
-  chars_number = string.downcase.chars.tally
-  chars_number.delete_if { |k, _| k.match?(/[^a-z0-9]/i) }
-              .group_by { |_, v| v }
-              .each_with_object({}) { |(k, v), h| h[k] = v.map { |e| e[0] } }
-              .sort
-              .reverse
-              .to_h
-              .each_value { |v| v.sort! }
+  downcased_string = string.downcase
+
+  count_hash = downcased_string.chars.each_with_object({}) do |char, hash|
+    next if hash.values.flatten.include?(char) || char =~ /[^0-9a-z]/
+    count_of_char = downcased_string.count(char)
+    hash[count_of_char] = (hash[count_of_char] || []) + [char]
+  end
+
+  count_hash.each_value(&:sort!).sort_by(&:first).reverse.to_h
 end
 
-# p get_char_count("Mississippi") == {4=>["i", "s"], 2=>["p"], 1=>["m"]}
-# p get_char_count("Hello. Hello? HELLO!!") == {6=>["l"], 3=>["e", "h", "o"]}
-# p get_char_count("aaa...bb...c!") == {3=>["a"], 2=>["b"], 1=>["c"]}
-# p get_char_count("aaabbbccc") == {3=>["a", "b", "c"]}
-p get_char_count("abc123") == { 1=>["1", "2", "3", "a", "b", "c"] }
+puts 'Test result is ' + (get_char_count("Mississippi") == {4=>["i", "s"], 2=>["p"], 1=>["m"]}).to_s.upcase
+p get_char_count("Mississippi") # {4=>["i", "s"], 2=>["p"], 1=>["m"]}, "Nope! Try again."
+
+puts 'Test result is ' + (get_char_count("Hello. Hello? HELLO!") == {6=>["l"], 3=>["e", "h", "o"]}).to_s.upcase
+p get_char_count("Hello. Hello? HELLO!") # {6=>["l"], 3=>["e", "h", "o"]}, "Nope! Try again."
+
+puts 'Test result is ' + (get_char_count("aaa...bb...c!") == {3=>["a"], 2=>["b"], 1=>["c"]}).to_s.upcase
+p get_char_count("aaa...bb...c!") # {3=>["a"], 2=>["b"], 1=>["c"]}, "Nope! Try again."
+
+puts 'Test result is ' + (get_char_count("abc123") == {1=>["1", "2", "3", "a", "b", "c"]}).to_s.upcase
+p get_char_count("abc123") # {1=>["1", "2", "3", "a", "b", "c"]}, "Nope! Try again."
+
+puts 'Test result is ' + (get_char_count("aaabbbccc") == {3=>["a", "b", "c"]}).to_s.upcase
+p get_char_count("aaabbbccc") # {3=>["a", "b", "c"]}, "Nope! Try again."
