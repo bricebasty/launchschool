@@ -22,11 +22,11 @@ def remove_tests(var)
 end
 
 tests = <<~TEST
-describe "Solution" do
-  it "should test for something" do
-    Test.assert_equals(string_transformer('Example string'), 'STRING eXAMPLE')
-  end
-end
+Test.assert_equals(find_children("abBA"),"AaBb")
+Test.assert_equals(find_children("AaaaaZazzz"),"AaaaaaZzzz")
+Test.assert_equals(find_children("CbcBcbaA"),"AaBbbCcc")
+Test.assert_equals(find_children("xXfuUuuF"),"FfUuuuXx")
+Test.assert_equals(find_children(""),"")
 TEST
 
 remove_tests(tests)
