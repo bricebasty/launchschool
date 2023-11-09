@@ -22,13 +22,16 @@ def remove_tests(var)
 end
 
 tests = <<~TEST
-it 'should return the correct value for a single word' do
-  Test.assert_equals(weirdcase('This'), 'ThIs');
-  Test.assert_equals(weirdcase('is'), 'Is');
-end
-it 'should return the correct value for multiple words' do
-  Test.assert_equals(weirdcase('This is a test'), 'ThIs Is A TeSt');
-end
+describe("random tests") do
+  Test.assert_equals(solve(123056,1),'12056')
+  Test.assert_equals(solve(123056,2),'1056')
+  Test.assert_equals(solve(123056,3),'056')
+  Test.assert_equals(solve(123056,4),'05')
+  Test.assert_equals(solve(1284569,1),'124569')
+  Test.assert_equals(solve(1284569,2),'12456')
+  Test.assert_equals(solve(1284569,3),'1245')
+  Test.assert_equals(solve(1284569,4),'124')
+  end
 TEST
 
 remove_tests(tests)
