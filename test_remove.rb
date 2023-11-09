@@ -22,11 +22,13 @@ def remove_tests(var)
 end
 
 tests = <<~TEST
-Test.assert_equals(find_children("abBA"),"AaBb")
-Test.assert_equals(find_children("AaaaaZazzz"),"AaaaaaZzzz")
-Test.assert_equals(find_children("CbcBcbaA"),"AaBbbCcc")
-Test.assert_equals(find_children("xXfuUuuF"),"FfUuuuXx")
-Test.assert_equals(find_children(""),"")
+it 'should return the correct value for a single word' do
+  Test.assert_equals(weirdcase('This'), 'ThIs');
+  Test.assert_equals(weirdcase('is'), 'Is');
+end
+it 'should return the correct value for multiple words' do
+  Test.assert_equals(weirdcase('This is a test'), 'ThIs Is A TeSt');
+end
 TEST
 
 remove_tests(tests)
