@@ -22,15 +22,12 @@ def remove_tests(var)
 end
 
 tests = <<~TEST
-describe("random tests") do
-  Test.assert_equals(solve(123056,1),'12056')
-  Test.assert_equals(solve(123056,2),'1056')
-  Test.assert_equals(solve(123056,3),'056')
-  Test.assert_equals(solve(123056,4),'05')
-  Test.assert_equals(solve(1284569,1),'124569')
-  Test.assert_equals(solve(1284569,2),'12456')
-  Test.assert_equals(solve(1284569,3),'1245')
-  Test.assert_equals(solve(1284569,4),'124')
+describe("Tests") do
+  Test.assert_equals(max_sequence([]), 0)
+  Test.assert_equals(max_sequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]), 6)
+  Test.assert_equals(max_sequence([11]), 11)
+  Test.assert_equals(max_sequence([-32]), 0)
+  Test.assert_equals(max_sequence([-2, 1, -7, 4, -10, 2, 1, 5, 4]), 12)
   end
 TEST
 
