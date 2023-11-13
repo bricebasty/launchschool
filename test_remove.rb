@@ -22,13 +22,12 @@ def remove_tests(var)
 end
 
 tests = <<~TEST
-describe("Tests") do
-  Test.assert_equals(max_sequence([]), 0)
-  Test.assert_equals(max_sequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]), 6)
-  Test.assert_equals(max_sequence([11]), 11)
-  Test.assert_equals(max_sequence([-32]), 0)
-  Test.assert_equals(max_sequence([-2, 1, -7, 4, -10, 2, 1, 5, 4]), 12)
-  end
+Test.assert_equals(triple_double(451999277, 41177722899), 1)
+Test.assert_equals(triple_double(1222345, 12345), 0)
+Test.assert_equals(triple_double(12345, 12345), 0)
+Test.assert_equals(triple_double(666789, 12345667), 1)
+Test.assert_equals(triple_double(10560002, 100), 1)
+Test.assert_equals(triple_double(1112, 122), 0)
 TEST
 
 remove_tests(tests)
