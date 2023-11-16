@@ -1,12 +1,12 @@
 def solve(string)
   all_substrings = []
-  (0...string.size).each_with_index do |element, starting_index|
+  (0...string.size).each do |starting_index|
     max_size = string.size - starting_index
     (1..max_size).each do |current_size|
       all_substrings << string[starting_index, current_size]
     end
   end
-  all_substrings
+  all_substrings.select { |element| element.to_i.odd? }.size
 end
 
 # creating pairs of elements from a given array
