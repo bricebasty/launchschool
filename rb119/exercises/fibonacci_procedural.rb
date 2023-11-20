@@ -14,7 +14,7 @@
 
 # Rewrite your recursive fibonacci method so that it computes its results without recursion.
 
-# 09:42
+# 09:42 09:51
 =begin
 PROBLEM
 ---
@@ -66,9 +66,11 @@ Do for integer times
 =end
 
 def fibonacci(integer)
-
+  (0...integer).each_with_object([]) do |index, array|
+    array.push(index < 2 ? 1 : array[index - 1] + array[index - 2])
+  end.last
 end
 
-fibonacci(20) == 6765
-fibonacci(100) == 354224848179261915075
-fibonacci(100_001) # => 4202692702.....8285979669707537501
+p fibonacci(20) == 6765
+p fibonacci(100) == 354224848179261915075
+p fibonacci(100_001) # => 4202692702.....8285979669707537501
