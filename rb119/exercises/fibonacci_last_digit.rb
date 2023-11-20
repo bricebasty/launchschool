@@ -10,8 +10,8 @@
 09:56
 PROBLEM
 ---
-INPUT:
-OUTPUT:
+INPUT: Integer
+OUTPUT: Last digit of the integer'th fibonacci number
 RULES:
 
 EXAMPLES
