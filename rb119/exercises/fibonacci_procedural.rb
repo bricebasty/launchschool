@@ -46,11 +46,22 @@ ALGO
 ---
 
 WHAT:
-Calculate the fibonacci number at 1 st position
-then 2nd
-then 3rd
+
+Calculate the fibonacci number at 1 st position and put it in an array
+then 2nd and put it in an array
+then 3rd and put it in an array
+up until the last one
+
+Then take the last element of the array
 
 HOW:
+
+Initialize an empty array
+
+Do for integer times
+-> if the index of times is 0 or 1, add 1 to the empty array
+-> else take the number at index -1 and index - 2 and add them together
+  -> push them to the array
 
 =end
 
