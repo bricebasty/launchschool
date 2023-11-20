@@ -6,7 +6,34 @@
 # In this exercise, you are going to compute a method that returns the last
 # digit of the nth Fibonacci number.
 
-# Examples:
+=begin
+09:56
+PROBLEM
+---
+INPUT:
+OUTPUT:
+RULES:
+
+EXAMPLES
+---
+INPUT:
+=>
+OUTPUT:
+
+DATA STRUCTURES
+---
+INPUT:
+=>
+OUTPUT:
+
+ALGO
+---
+
+WHAT:
+
+HOW:
+
+=end
 
 fibonacci_last(15)        # -> 0  (the 15th Fibonacci number is 610)
 fibonacci_last(20)        # -> 5 (the 20th Fibonacci number is 6765)
