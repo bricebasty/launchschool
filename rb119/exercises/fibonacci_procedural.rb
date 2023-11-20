@@ -19,29 +19,37 @@
 PROBLEM
 ---
 
-INPUT:
-OUTPUT:
+INPUT: Integer
+OUTPUT: Fibonnaci number at the "integer"'s place
 RULES:
-
+- Can't use recursion
 
 EXAMPLES
 ---
 
-INPUT:
-=>
-OUTPUT:
+INPUT: 5
+=> 1
+=> 1
+=> 2
+=> 3
+=> 5
+OUTPUT: 5
 
 DATA STRUCTURES
 ---
 
-INPUT:
-=>
-OUTPUT:
+INPUT: Integer
+=> Array
+OUTPUT: Integer
 
 ALGO
 ---
 
 WHAT:
+Calculate the fibonacci number at 1 st position
+then 2nd
+then 3rd
+
 HOW:
 
 =end
