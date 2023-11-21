@@ -13,6 +13,30 @@ PROBLEM
 INPUT: Integer
 OUTPUT: Last digit of the integer'th fibonacci number
 RULES:
+<<<<<<< HEAD
+=======
+
+EXAMPLES
+---
+INPUT:
+=>
+OUTPUT:
+
+DATA STRUCTURES
+---
+INPUT:
+=>
+OUTPUT:
+
+ALGO
+---
+
+WHAT:
+
+HOW:
+
+=end
+>>>>>>> c1f4f507c20e3a0abb3b5405e96260c2ad6f53fa
 
 EXAMPLES
 ---
