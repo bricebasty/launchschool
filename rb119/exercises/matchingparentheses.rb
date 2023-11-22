@@ -14,7 +14,8 @@ INPUT: String
 OUTPUT: Boolean
 RULES:
 - Return true if parentheses opening and closing is matching
-- Balanced pairs must open, can't begin with a close
+- When we encounter the first parenthese and it's closing we will default return false
+
 
 EXAMPLES:
 ---
@@ -31,14 +32,15 @@ OUTPUT: true
 DATA STRUCTURES:
 ---
 
-INPUT:
+INPUT: String
 =>
-OUTPUT:
+OUTPUT: Boolean
 
 ALGORITHM
 ---
 
 WHAT ?
+
 
 HOW ?
 =end
