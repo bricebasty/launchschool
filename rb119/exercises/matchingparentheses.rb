@@ -74,23 +74,23 @@ Check if all elements size in the array are even
 HOW ?
 
 =end
-def balanced?(string)
-  parentheses = []
-  opened_parentheses_index = 0
-  closed_parentheses_index = 0
-  string.each_char do |char|
-    return false if char == ')' && (parentheses.empty? || parentheses[closed_parentheses_index].nil?)
-    if char == '('
-      parentheses[opened_parentheses_index] = char
-      opened_parentheses_index += 1
-    elsif char == ')'
-      parentheses[closed_parentheses_index] << char
-      closed_parentheses_index += 1
-    end
-  end
+# def balanced?(string)
+#   parentheses = []
+#   opened_parentheses_index = 0
+#   closed_parentheses_index = 0
+#   string.each_char do |char|
+#     return false if char == ')' && (parentheses.empty? || parentheses[closed_parentheses_index].nil?)
+#     if char == '('
+#       parentheses[opened_parentheses_index] = char
+#       opened_parentheses_index += 1
+#     elsif char == ')'
+#       parentheses[closed_parentheses_index] << char
+#       closed_parentheses_index += 1
+#     end
+#   end
 
-  parentheses.all? { |element| element.size.even? }
-end
+#   parentheses.all? { |element| element.size.even? }
+# end
 
 p balanced?('What (is) this?') == true
 p balanced?('What is) this?') == false
