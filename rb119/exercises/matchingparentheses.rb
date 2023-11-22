@@ -55,7 +55,7 @@ HOW ?
 
 def balanced?(string)
   parentheses = ""
-  string.each_char do |char|
+  string.each_char.with_index do |char, index|
     return false if char.match?(/\)/) && parentheses.empty?
     parentheses << char if char.match?(/\)|\(/)
   end
