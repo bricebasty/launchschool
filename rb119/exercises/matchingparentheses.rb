@@ -57,12 +57,22 @@ HOW ?
 
 =end
 
-balanced?('What (is) this?') == true
-balanced?('What is) this?') == false
-balanced?('What (is this?') == false
-balanced?('((What) (is this))?') == true
-balanced?('((What)) (is this))?') == false
-balanced?('Hey!') == true
-balanced?(')Hey!(') == false
-balanced?('What ((is))) up(') == false
-balanced?('What ())(is() up') == false
+def balanced?(string)
+  parentheses = ""
+  string.each_char do |char|
+    return false if char.match?(/\)/) && parentheses.empty?
+    parentheses << char if char.match?(/\)|\(/)
+  end
+
+  parentheses.size.even?
+end
+
+p balanced?('What (is) this?') == true
+p balanced?('What is) this?') == false
+p balanced?('What (is this?') == false
+p balanced?('((What) (is this))?') == true
+p balanced?('((What)) (is this))?') == false
+p balanced?('Hey!') == true
+p balanced?(')Hey!(') == false
+p balanced?('What ())(is() up') == false
+p balanced?('What ((is))) up(') == false
