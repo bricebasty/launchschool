@@ -5,6 +5,37 @@
 
 # Note that balanced pairs must each start with a (, not a ).
 
+# 09:28
+=begin
+PROBLEM
+---
+
+INPUT:
+OUTPUT:
+RULES:
+
+EXAMPLES:
+---
+
+INPUT:
+=>
+OUTPUT:
+
+DATA STRUCTURES:
+---
+
+INPUT:
+=>
+OUTPUT:
+
+ALGORITHM
+---
+
+WHAT ?
+
+HOW ?
+=end
+
 balanced?('What (is) this?') == true
 balanced?('What is) this?') == false
 balanced?('What (is this?') == false
