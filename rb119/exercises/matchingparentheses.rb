@@ -55,22 +55,30 @@ Check if it is a parenthese
   - If it is a closing one and the string is empty OR the char at index -1 is a closing one return false
   - add it to the string if its a parenthese
 Check the size of the string if it is even
+---
+
+Initialize an empty array
+
 
 
 HOW ?
 
 =end
 
-def balanced?(string)
-  parentheses = ""
-  string.each_char.with_index do |char, index|
-    if char == ')' && (parentheses.empty? || string[index - 1] == ')')
-      return false
-    end
-    parentheses << char if char.match?(/\)|\(/)
-  end
+# def balanced?(string)
+#   parentheses = ""
+#   string.each_char.with_index do |char, index|
+#     if char == ')' && (parentheses.empty? || string[index - 1] == ')')
+#       return false
+#     end
+#     parentheses << char if char.match?(/\)|\(/)
+#   end
 
-  parentheses.size.even?
+#   parentheses.size.even?
+# end
+
+def balanced?(string)
+  parentheses = []
 end
 
 p balanced?('What (is) this?') == true
