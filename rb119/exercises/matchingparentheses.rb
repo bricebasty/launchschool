@@ -92,20 +92,6 @@ def balanced?(string)
   parentheses.all? { |element| element.size.even? }
 end
 
-# def balanced?(string)
-#   parentheses = ""
-#   string.each_char.with_index do |char, index|
-#     if char == ')' && (parentheses.empty? || string[index - 1] == ')')
-#       return false
-#     end
-#     parentheses << char if char.match?(/\)|\(/)
-#   end
-
-#   parentheses.size.even?
-# end
-
-
-
 p balanced?('What (is) this?') == true
 p balanced?('What is) this?') == false
 p balanced?('What (is this?') == false
