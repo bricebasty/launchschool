@@ -58,17 +58,30 @@ Check the size of the string if it is even
 ---
 
 Initialize an empty array
-Initialize a counter
+Initialize a counter for opened parenthese
+Initialize a counter for closed parenthese
 Iterate over character
   If it is a closing parenthese and array is empty return false
   If it is an opening parenthese
-    Add it to the array as a string at index of the counter
-    add +1 to the counter
+    Add it to the array as a string at index of the opened counter
+    add +1 to the opened counter
+  If it is a closing parenthese
+    Add it to the array as a string at index of the closed counter
+    add +1 to the closed counter
 
+Check if all elements size in the array are even
 
 HOW ?
 
 =end
+def balanced?(string)
+  parentheses = []
+  opened_parentheses_index = 0
+  closed_parentheses_index = 0
+  string.each_char do |char|
+    return false if char == ')' && parentheses.empty?
+  end
+end
 
 # def balanced?(string)
 #   parentheses = ""
@@ -82,9 +95,7 @@ HOW ?
 #   parentheses.size.even?
 # end
 
-def balanced?(string)
-  parentheses = []
-end
+
 
 p balanced?('What (is) this?') == true
 p balanced?('What is) this?') == false
