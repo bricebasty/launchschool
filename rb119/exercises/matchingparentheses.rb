@@ -10,16 +10,23 @@
 PROBLEM
 ---
 
-INPUT:
-OUTPUT:
+INPUT: String
+OUTPUT: Boolean
 RULES:
+- Return true if parentheses opening and closing is matching
+- Balanced pairs must open, can't begin with a close
 
 EXAMPLES:
 ---
 
-INPUT:
+INPUT: ")()("
 =>
-OUTPUT:
+OUTPUT: false
+
+INPUT: "(())"
+=>
+OUTPUT: true
+
 
 DATA STRUCTURES:
 ---
