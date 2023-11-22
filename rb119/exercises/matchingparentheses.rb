@@ -58,7 +58,12 @@ Check the size of the string if it is even
 ---
 
 Initialize an empty array
-
+Initialize a counter
+Iterate over character
+  If it is a closing parenthese and array is empty return false
+  If it is an opening parenthese
+    Add it to the array as a string at index of the counter
+    add +1 to the counter
 
 
 HOW ?
