@@ -28,6 +28,9 @@ INPUT: "(())"
 =>
 OUTPUT: true
 
+INPUT:'((What) (is this))?'
+=>
+OUTPUT: true
 
 DATA STRUCTURES:
 ---
