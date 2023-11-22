@@ -42,9 +42,9 @@ ALGORITHM
 WHAT ?
 
 Initialize a empty string
-Iterate over character
+Iterate over character with index
 Check if it is a parenthese
-  - If it is a closing one and the string is empty return false
+  - If it is a closing one and the string is empty OR the char at index -1 is a closing one return false
   - add it to the string if its a parenthese
 Check the size of the string if it is even
 
@@ -56,7 +56,9 @@ HOW ?
 def balanced?(string)
   parentheses = ""
   string.each_char.with_index do |char, index|
-    return false if char.match?(/\)/) && parentheses.empty?
+    if char == ')' && (parentheses.empty? || parentheses[index - 1] == ')')
+      return false
+    end
     parentheses << char if char.match?(/\)|\(/)
   end
 
