@@ -5,7 +5,7 @@
 
 # Note that balanced pairs must each start with a (, not a ).
 
-# 09:28
+# 09:28 09:57
 =begin
 PROBLEM
 ---
@@ -79,7 +79,7 @@ def balanced?(string)
   opened_parentheses_index = 0
   closed_parentheses_index = 0
   string.each_char do |char|
-    return false if char == ')' && parentheses.empty?
+    return false if char == ')' && (parentheses.empty? || parentheses[closed_parentheses_index].nil?)
     if char == '('
       parentheses[opened_parentheses_index] = char
       opened_parentheses_index += 1
