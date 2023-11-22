@@ -44,14 +44,10 @@ WHAT ?
 Initialize a empty string
 Iterate over character
 Check if it is a parenthese
-- If it is a closing one and the string is empty return false
-- Else
-  - add it to the string
+  - If it is a closing one and the string is empty return false
+  - add it to the string if its a parenthese
 Check the size of the string if it is even
-  - if it is
-    return true
-  - if it is not
-    return false
+
 
 HOW ?
 
