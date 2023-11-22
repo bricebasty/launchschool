@@ -95,8 +95,8 @@ HOW ?
 def balanced?(string)
 parens = 0
 string.each_char do |char|
-  parens += 1 if char.match?(/[\(\)'"\[\]\{\}]/)
-  parens -= 1 if char == ')'
+  parens += 1 if char.match?(/[\(\[\{]/)
+  parens -= 1 if char.match?(/[\)\]\}]/)
   break if parens < 0
 end
 
