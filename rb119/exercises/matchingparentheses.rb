@@ -80,7 +80,16 @@ def balanced?(string)
   closed_parentheses_index = 0
   string.each_char do |char|
     return false if char == ')' && parentheses.empty?
+    if char == '('
+      parentheses[opened_parentheses_index] = char
+      opened_parentheses_index += 1
+    elsif char == ')'
+      parentheses[closed_parentheses_index] << char
+      closed_parentheses_index += 1
+    end
   end
+
+  parentheses.all? { |element| element.size.even? }
 end
 
 # def balanced?(string)
