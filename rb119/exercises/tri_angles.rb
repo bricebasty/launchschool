@@ -18,7 +18,7 @@
 # end
 
 =begin
-10:01
+10:01 10:12
 
 PROBLEM
 ---
@@ -49,15 +49,19 @@ WHAT
 
 - right if one angle == 90 degrees -> return obtuse if any is equal to 90 degrees
 - obstuse if one angle > 90 degrees -> return obtuse if any is more than 90 degrees
-- acute if all angles < 90 degrees
+- acute if all angles < 90 degrees -> return acute if all?
 
 HOW
 
 =end
 
 def triangle(angle1, angle2, angle3)
-  all_angles = [angle1, angle2, angle3]
+  all_angles = [angle1, angle2, angle3].sort
+
   return :invalid if all_angles.any?(&:zero?) || all_angles.sum != 180
+  return :right if all_angles[2] == 90
+  return :obtuse if all_angles[2] > 90
+  :acute
 end
 
 p triangle(60, 70, 50) == :acute
