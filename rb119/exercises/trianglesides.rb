@@ -11,7 +11,36 @@
 # and returns a symbol :equilateral, :isosceles, :scalene, or :invalid depending
 # on whether the triangle is equilateral, isosceles, scalene, or invalid.
 
+=begin
+09:42
 
+PROBLEM
+---
+
+INPUT:
+OUTPUT:
+RULES:
+
+EXAMPLES
+---
+
+INPUT:
+=>
+OUTPUT:
+DATA STRUCTURES
+---
+
+INPUT:
+=>
+OUTPUT:
+
+ALGORITHM
+---
+
+WHAT
+
+HOW
+=end
 triangle(3, 3, 3) == :equilateral
 triangle(3, 3, 1.5) == :isosceles
 triangle(3, 4, 5) == :scalene
