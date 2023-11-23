@@ -58,7 +58,7 @@ HOW
 def triangle(angle1, angle2, angle3)
   all_angles = [angle1, angle2, angle3].sort
 
-  return :invalid if all_angles.any?(&:zero?) || all_angles.sum != 180
+  return :invalid if all_angles.include?(0) || all_angles.sum != 180
   return :right if all_angles[2] == 90
   return :obtuse if all_angles[2] > 90
   :acute
