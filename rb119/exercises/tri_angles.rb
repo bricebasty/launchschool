@@ -17,6 +17,38 @@
 #  point errors. You may also assume that the arguments are specified in degrees.
 # end
 
+=begin
+10:01
+
+PROBLEM
+---
+INPUT:
+OUTPUT:
+
+RULES:
+-
+
+EXAMPLES
+---
+INPUT:
+=>
+OUTPUT:
+
+DATA STRUCTURES
+---
+INPUT:
+=>
+OUTPUT:
+
+ALGORITHM
+---
+WHAT
+
+HOW
+
+=end
+
+
 triangle(60, 70, 50) == :acute
 triangle(30, 90, 60) == :right
 triangle(120, 50, 10) == :obtuse
