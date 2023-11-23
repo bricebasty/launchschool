@@ -47,6 +47,10 @@ ALGORITHM
 ---
 WHAT
 
+- right if one angle == 90 degrees -> return obtuse if any is equal to 90 degrees
+- obstuse if one angle > 90 degrees -> return obtuse if any is more than 90 degrees
+- acute if all angles < 90 degrees
+
 HOW
 
 =end
