@@ -12,7 +12,7 @@
 # on whether the triangle is equilateral, isosceles, scalene, or invalid.
 
 =begin
-09:42
+09:42 09:55
 
 PROBLEM
 ---
@@ -58,11 +58,19 @@ HOW
 
 def triangle(side1, side2, side3)
   all_sides = [side1, side2, side3].sort
-  return :invalid if all_sides.any? { |side| side == 0 }
+  return :invalid if all_sides.any?(&:zero?) || all_sides[0..1].sum < all_sides[2]
+  case all_sides.uniq.size
+  when 1
+    :equilateral
+  when 2
+    :isosceles
+  when 3
+    :scalene
+  end
 end
 
-triangle(3, 3, 3) == :equilateral
-triangle(3, 3, 1.5) == :isosceles
-triangle(3, 4, 5) == :scalene
-triangle(0, 3, 3) == :invalid
-triangle(3, 1, 1) == :invalid
+p triangle(3, 3, 3) == :equilateral
+p triangle(3, 3, 1.5) == :isosceles
+p triangle(3, 4, 5) == :scalene
+p triangle(0, 3, 3) == :invalid
+p triangle(3, 1, 1) == :invalid
