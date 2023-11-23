@@ -17,9 +17,12 @@
 PROBLEM
 ---
 
-INPUT:
-OUTPUT:
+INPUT: 3 integers representing the sides of a triangle
+OUTPUT: symbol of what is the triangle
 RULES:
+- Valid triangles:
+  - All sides > 0
+  - sum of two shortest sides > longest side
 
 EXAMPLES
 ---
@@ -27,6 +30,7 @@ EXAMPLES
 INPUT:
 =>
 OUTPUT:
+
 DATA STRUCTURES
 ---
 
