@@ -43,6 +43,9 @@ ALGORITHM
 
 WHAT
 
+Store the arguments in an array and sort them
+Return :invalid if any side isnt greater than 0 or the sum of first 2 in the array < third
+
 HOW
 =end
 triangle(3, 3, 3) == :equilateral
