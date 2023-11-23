@@ -27,9 +27,9 @@ RULES:
 EXAMPLES
 ---
 
-INPUT:
-=>
-OUTPUT:
+INPUT: 3, 3, 3
+=> [3, 3, 3] -> all equal ? -> yes
+OUTPUT: :equilateral
 
 DATA STRUCTURES
 ---
