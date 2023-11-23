@@ -22,11 +22,14 @@
 
 PROBLEM
 ---
-INPUT:
-OUTPUT:
+INPUT: 3 integers
+OUTPUT: symbol
 
 RULES:
--
+- right if one angle == 90 degrees
+- obstuse if one angle > 90 degrees
+- acute if all angles < 90 degrees
+- invalid if
 
 EXAMPLES
 ---
