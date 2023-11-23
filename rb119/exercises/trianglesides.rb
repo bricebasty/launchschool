@@ -45,9 +45,22 @@ WHAT
 
 Store the arguments in an array and sort them
 Return :invalid if any side isnt greater than 0 or the sum of first 2 in the array < third
+Uniq the array
+If the uniq array is 1 character long
+return :equilateral
+If the uniq array size is 2
+return isosceles
+If the uniq array size is 3
+return scalene
 
 HOW
 =end
+
+def triangle(side1, side2, side3)
+  all_sides = [side1, side2, side3].sort
+  return :invalid if all_sides.any? { |side| side == 0 }
+end
+
 triangle(3, 3, 3) == :equilateral
 triangle(3, 3, 1.5) == :isosceles
 triangle(3, 4, 5) == :scalene
