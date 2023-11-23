@@ -60,12 +60,9 @@ def triangle(side1, side2, side3)
   all_sides = [side1, side2, side3].sort
   return :invalid if all_sides.any?(&:zero?) || all_sides[0..1].sum < all_sides[2]
   case all_sides.uniq.size
-  when 1
-    :equilateral
-  when 2
-    :isosceles
-  when 3
-    :scalene
+  when 1 then :equilateral
+  when 2 then :isosceles
+  when 3 then :scalene
   end
 end
 
