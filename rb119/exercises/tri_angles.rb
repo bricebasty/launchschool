@@ -29,7 +29,7 @@ RULES:
 - right if one angle == 90 degrees
 - obstuse if one angle > 90 degrees
 - acute if all angles < 90 degrees
-- invalid if
+- invalid if all angles != 180 degrees and all angles > 0
 
 EXAMPLES
 ---
@@ -51,6 +51,10 @@ HOW
 
 =end
 
+def triangle(angle1, angle2, angle3)
+  all_angles = [angle1, angle2, angle3].sort
+  return :invalid if all_angles.any?(&:zero?) || all_angles[0..1].sum < all_angles[2]
+end
 
 triangle(60, 70, 50) == :acute
 triangle(30, 90, 60) == :right
