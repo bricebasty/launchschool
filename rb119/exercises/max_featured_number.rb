@@ -7,6 +7,33 @@
 # Write a method that takes a single integer as an argument, and returns the
 # next featured number that is greater than the argument. Return an error message
 # if there is no next featured number.
+#
+=begin
+10:16
+
+PROBLEM
+---
+INPUT:
+OUTPUT:
+RULES:
+
+EXAMPLES
+---
+INPUT:
+=>
+OUTPUT:
+
+DATA STRUCTURES
+---
+INPUT:
+=>
+OUTPUT:
+
+ALGORITHM
+---
+WHAT
+HOW
+=end
 
 p featured(12) == 21
 p featured(20) == 21
