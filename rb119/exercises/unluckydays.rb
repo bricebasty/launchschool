@@ -35,7 +35,8 @@ Check the day of it
 If it's a friday increment a variable
 
 HOW:
-Create 12 date objects in a list
+Create 12 date objects for the current year and iterative months in a list
+Check how many friday there are
 
 =end
 require 'date'
