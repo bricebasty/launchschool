@@ -31,12 +31,18 @@ OUTPUT:
 DATA STRUCTURES
 ---
 INPUT: 12
-=>
+=> 14 -> odd ? -> no
+=> 21 -> odd? -> yes -> digits?
 OUTPUT: 21
 
 ALGORITHM
 ---
 WHAT
+
+return "Error" if the input is has more than 10 digits
+Check the next multiples of 7
+
+
 HOW
 =end
 
