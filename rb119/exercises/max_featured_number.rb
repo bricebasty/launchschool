@@ -56,6 +56,7 @@ HOW
 
 def featured(integer)
   return "Error" if integer > 9876543210
+  next_product = (integer / 7) + 1
 
 end
 
