@@ -16,20 +16,27 @@ RULES:
 
 EXAMPLES
 ---
-INPUT:
+INPUT: 2015
 =>
-OUTPUT:
+OUTPUT: 3
 
 DATA STRUCTURES
 ---
-INPUT:
-=>
-OUTPUT:
+INPUT: Integer
+=> Array?
+OUTPUT: Integer
 
 ALGORITHM
 ---
 WHAT:
+
+Get all the 13th of each month in that year
+Check the day of it
+If it's a friday increment a variable
+
 HOW:
+
+
 =end
 
 friday_13th(2015) == 3
