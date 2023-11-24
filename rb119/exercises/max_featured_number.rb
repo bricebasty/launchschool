@@ -41,10 +41,23 @@ WHAT
 
 return "Error" if the input is has more than 10 digits
 Check the next multiples of 7
+  Divide the input by 7 and store the result
+  Initialize an iterator to 1
+  Do 7 by result + iterator
+    If it's odd and all its digits are present once
+      return this number
+    if not
+      iterator +1
+      go back to the beginning of loop
 
 
 HOW
 =end
+
+def featured(integer)
+  return "Error" if integer > 9876543210
+
+end
 
 p featured(12) == 21
 p featured(20) == 21
