@@ -9,7 +9,7 @@
 # if there is no next featured number.
 #
 =begin
-10:16
+10:16 10:31
 
 PROBLEM
 ---
@@ -56,13 +56,13 @@ HOW
 
 def featured(integer)
   return "There is no possible number that fulfills those requirements" if integer > 9876543210
+
   next_product = (integer / 7) + 1
   iterator = 0
+
   loop do
     next_multiple = 7 * (next_product + iterator)
-    if next_multiple.odd? && next_multiple.to_s.size == next_multiple.digits.uniq.size
-      return next_multiple
-    end
+    return next_multiple if next_multiple.odd? && next_multiple.to_s.size == next_multiple.digits.uniq.size
     iterator += 1
   end
 end
