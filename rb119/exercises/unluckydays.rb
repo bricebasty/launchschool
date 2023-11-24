@@ -35,9 +35,14 @@ Check the day of it
 If it's a friday increment a variable
 
 HOW:
-
+Create 12 date objects in a list
 
 =end
+
+def friday_13th(year)
+  (1..12).each_with_object([]) { |month, arr| arr << Date.new(year, month, 13) }
+
+end
 
 friday_13th(2015) == 3
 friday_13th(1986) == 1
