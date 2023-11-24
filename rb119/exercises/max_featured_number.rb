@@ -55,13 +55,15 @@ HOW
 =end
 
 def featured(integer)
-  return "Error" if integer > 9876543210
+  return "There is no possible number that fulfills those requirements" if integer > 9876543210
   next_product = (integer / 7) + 1
   iterator = 0
   loop do
-    next_multiple_of_7 = 7 * next_product + iterator
-    if
-    iterator +=1
+    next_multiple = 7 * (next_product + iterator)
+    if next_multiple.odd? && next_multiple.to_s.size == next_multiple.digits.uniq.size
+      return next_multiple
+    end
+    iterator += 1
   end
 end
 
