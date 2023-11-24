@@ -40,8 +40,8 @@ Create 12 date objects in a list
 =end
 
 def friday_13th(year)
-  (1..12).each_with_object([]) { |month, arr| arr << Date.new(year, month, 13) }
-
+  days_in_months = (1..12).each_with_object([]) { |month, arr| arr << Date.new(year, month, 13) }
+  days_in_months.count { |day| day.friday? }
 end
 
 friday_13th(2015) == 3
