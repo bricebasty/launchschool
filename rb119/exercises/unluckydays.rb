@@ -5,7 +5,7 @@
 #   for the foreseeable future.
 
 =begin
-09:59
+09:59 10:11
 
 PROBLEM
 ---
@@ -38,12 +38,12 @@ HOW:
 Create 12 date objects in a list
 
 =end
+require 'date'
 
 def friday_13th(year)
-  days_in_months = (1..12).each_with_object([]) { |month, arr| arr << Date.new(year, month, 13) }
-  days_in_months.count { |day| day.friday? }
+  (1..12).each_with_object([]) { |month, arr| arr << Date.new(year, month, 13) }.count(&:friday?)
 end
 
-friday_13th(2015) == 3
-friday_13th(1986) == 1
-friday_13th(2019) == 2
+p friday_13th(2015) == 3
+p friday_13th(1986) == 1
+p friday_13th(2019) == 2
