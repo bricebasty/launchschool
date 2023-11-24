@@ -42,7 +42,7 @@ Check how many friday there are
 require 'date'
 
 def friday_13th(year)
-  (1..12).each_with_object([]) { |month, arr| arr << Date.new(year, month, 13) }.count(&:friday?)
+  (1..12).map { |month| Date.new(year, month, 13) }.count(&:friday?)
 end
 
 p friday_13th(2015) == 3
