@@ -13,9 +13,14 @@
 
 PROBLEM
 ---
-INPUT:
-OUTPUT:
+INPUT: Integer
+OUTPUT: Next featured number/Integer or Error message
 RULES:
+- Featured number is
+  - Multiple of 7
+  - Odd
+  - Each digit appears once
+
 
 EXAMPLES
 ---
@@ -25,9 +30,9 @@ OUTPUT:
 
 DATA STRUCTURES
 ---
-INPUT:
+INPUT: 12
 =>
-OUTPUT:
+OUTPUT: 21
 
 ALGORITHM
 ---
