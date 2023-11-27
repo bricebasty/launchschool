@@ -26,8 +26,6 @@
 # queue_time([2,3,10], 2)
 # should return 12
 #
-#
-#
 # Clarifications
 # There is only ONE queue serving many tills, and
 # The order of the queue NEVER changes, and
@@ -48,21 +46,23 @@ RULES:
 - Chaque entier dans l'array représente le temps dont il a besoin pour acheter un truc
 - Chaque entier représente le nombre de caisses a checkout
 - Output = temps total requis
--
-
+- Un client va après un autre quand la caisse est free
+- Ordre ne change jamais
+- Input sera toujours bon
+- Array vide retourne 0
 
 EXAMPLES
 ----------------
-INPUT:
+INPUT: [2,3,10], 2
 =>
 =>
-OUTPUT:
+OUTPUT: 12
 
 DATA STRUCTURES
 ----------------
-INPUT:
-=>
-OUTPUT:
+INPUT:Array, integer
+=> Array
+OUTPUT: Integer
 
 ALGORITHM
 ----------------
