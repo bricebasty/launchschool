@@ -24,7 +24,9 @@
 # # queue finish before the 1st person has finished.
 
 # queue_time([2,3,10], 2)
-# # should return 12
+# should return 12
+#
+#
 #
 # Clarifications
 # There is only ONE queue serving many tills, and
