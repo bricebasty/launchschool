@@ -86,7 +86,8 @@ Break the loop if the flag is false
 HOW
 
 Swap
-  Take
+  Insert at index starting index the second element of the subarray
+  Insert at index starting index + 1 the first element of the subarray
 
 =end
 
@@ -96,6 +97,8 @@ def bubble_sort!(array)
   loop do
     subarray = array.slice![starting_index, 2]
     if subarray[0] > subarray[1]
+      array.insert(starting_index, subarray[1])
+      array.insert(starting_index + 1, subarray[0])
       array_swapped = true
     end
     starting_index += 1
