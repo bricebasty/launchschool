@@ -100,7 +100,6 @@ def bubble_sort!(array)
       subarray = array.slice!(starting_index, 2)
       if subarray[0] > subarray[1]
         array.insert(starting_index, subarray[1])
-        binding.pry
         array.insert(starting_index + 1, subarray[0])
         array_swapped = true
       end
