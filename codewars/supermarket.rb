@@ -71,6 +71,8 @@ ALGORITHM
 
 HIGH-LEVEL:
 
+LOW-LEVEL:
+
 Initialiser une liste vide
 Itere sur chaque element de queue
   Si la size de la liste sum_array est strictement plus petite que tills
@@ -78,8 +80,6 @@ Itere sur chaque element de queue
   Sinon
     Prendre le plus petit nombre de la liste et additionner la valeur du client
 Prendre le nombre le plus grand dans la liste
-
-LOW-LEVEL:
 
 =end
 
