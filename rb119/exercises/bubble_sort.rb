@@ -102,6 +102,9 @@ def bubble_sort!(array)
         array.insert(starting_index, subarray[1])
         array.insert(starting_index + 1, subarray[0])
         array_swapped = true
+      else
+        array.insert(starting_index, subarray[0])
+        array.insert(starting_index + 1, subarray[1])
       end
     end
     break if array_swapped == false
@@ -113,10 +116,10 @@ array = [5, 3]
 p bubble_sort!(array)
 array == [3, 5]
 
-# array = [6, 2, 7, 1, 4]
-# bubble_sort!(array)
-# array == [1, 2, 4, 6, 7]
+array = [6, 2, 7, 1, 4]
+p bubble_sort!(array)
+array == [1, 2, 4, 6, 7]
 
-# array = %w(Sue Pete Alice Tyler Rachel Kim Bonnie)
-# bubble_sort!(array)
-# array == %w(Alice Bonnie Kim Pete Rachel Sue Tyler)
+array = %w(Sue Pete Alice Tyler Rachel Kim Bonnie)
+p bubble_sort!(array)
+array == %w(Alice Bonnie Kim Pete Rachel Sue Tyler)
