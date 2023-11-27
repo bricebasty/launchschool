@@ -47,11 +47,19 @@
 PROBLEM
 ---
 
+INPUT: Array of integers
+OUTPUT: Sorted array of integers
+RULES:
+- Bubble sort
+- Mutate the array
+- Stop when we make a pass through the array without making any swaps
+
 EXAMPLES
 ---
-INPUT
-=>
-OUTPUT
+INPUT: [6, 7, 2]
+=> 6 > 2 ? y -> 2, 6
+=> 6
+OUTPUT [2, 6, 7]
 
 DATA STRUCTURES
 ---
