@@ -94,6 +94,9 @@ def queue_time(queue, tills)
   sum_array.max_by(&:sum)[0]
 end
 
+number = 1
+puts(true ? "Hey" : "Hola")
+
 # puts 'Test result is ' + (queue_time([], 1) == 0).to_s.upcase
 # p queue_time([], 1) # 0
 
