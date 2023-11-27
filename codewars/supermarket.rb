@@ -89,8 +89,7 @@ def queue_time(queue, tills)
   tills.times { sum_array << [] }
 
   queue.each_with_index do |client, index|
-    sum_array[0] << client
-    sum_array[sum_array.min_by(&:sum).index] << client unless index.zero?
+    array.slice(index.zero? ? 0 : sum_array.min_by(&:sum).index) << client
   end
   sum_array.max_by(&:sum)[0]
 end
