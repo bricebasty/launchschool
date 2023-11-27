@@ -92,16 +92,16 @@ Swap
 =end
 
 def bubble_sort!(array)
-  starting_index = 0
   loop do
-    array_swapped = false
-    subarray = array.slice![starting_index, 2]
-    if subarray[0] > subarray[1]
-      array.insert(starting_index, subarray[1])
-      array.insert(starting_index + 1, subarray[0])
-      array_swapped = true
+    array_swapped = false*
+    array.dup.each_index do |element, starting_index|
+      subarray = array.slice![starting_index, 2]
+      if subarray[0] > subarray[1]
+        array.insert(starting_index, subarray[1])
+        array.insert(starting_index + 1, subarray[0])
+        array_swapped = true
+      end
     end
-    starting_index += 1
     break if array_swapped == false
   end
 end
