@@ -85,6 +85,8 @@ LOW-LEVEL:
 def queue_time(queue, tills)
   sum_array = []
   tills.times { sum_array << [] }
+
+  queue.each { |client| sum_array[] << client }
 end
 
 puts 'Test result is ' + (queue_time([], 1) == 0).to_s.upcase
