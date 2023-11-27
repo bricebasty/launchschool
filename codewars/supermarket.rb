@@ -73,7 +73,7 @@ HIGH-LEVEL:
 
 Initialiser une liste vide
 Itere sur chaque element de queue
-  Si la size de la liste sum_array est strictement plus petite que la size de la liste queue
+  Si la size de la liste sum_array est strictement plus petite que tills
     push le client dans sum_array
   Sinon
     Prendre le plus petit nombre de la liste et additionner la valeur du client
@@ -86,25 +86,31 @@ LOW-LEVEL:
 def queue_time(queue, tills)
   return 0 if queue.empty?
   sum_array = []
+  queue.each do |client|
+    if sum_array.size < tills
+      sum_array << client
+    else
+      sum_array[sum_array.index(sum_array.min)] += client
+    end
+  end
 
-
-  sum_array.max_by
+  sum_array.max
 end
 
-# puts 'Test result is ' + (queue_time([], 1) == 0).to_s.upcase
-# p queue_time([], 1) # 0
+puts 'Test result is ' + (queue_time([], 1) == 0).to_s.upcase
+p queue_time([], 1) # 0
 
-# puts 'Test result is ' + (queue_time([5], 1) == 5).to_s.upcase
-# p queue_time([5], 1) # 5
+puts 'Test result is ' + (queue_time([5], 1) == 5).to_s.upcase
+p queue_time([5], 1) # 5
 
-# puts 'Test result is ' + (queue_time([2], 5) == 2).to_s.upcase
-# p queue_time([2], 5) # 2
+puts 'Test result is ' + (queue_time([2], 5) == 2).to_s.upcase
+p queue_time([2], 5) # 2
 
-# puts 'Test result is ' + (queue_time([1,2,3,4,5], 1) == 15).to_s.upcase
+puts 'Test result is ' + (queue_time([1,2,3,4,5], 1) == 15).to_s.upcase
 p queue_time([1,2,3,4,5], 1) # 15
 
-# puts 'Test result is ' + (queue_time([1,2,3,4,5], 100) == 5).to_s.upcase
+puts 'Test result is ' + (queue_time([1,2,3,4,5], 100) == 5).to_s.upcase
 p queue_time([1,2,3,4,5], 100) # 5
 
-# puts 'Test result is ' + (queue_time([2,2,3,3,4,4], 2) == 9).to_s.upcase
+puts 'Test result is ' + (queue_time([2,2,3,3,4,4], 2) == 9).to_s.upcase
 p queue_time([2,2,3,3,4,4], 2) # 9
