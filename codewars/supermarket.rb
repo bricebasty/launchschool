@@ -69,9 +69,12 @@ OUTPUT: Integer
 ALGORITHM
 ----------------
 
-NOTES:
-
 HIGH-LEVEL:
+
+Créer n listes vides dans une liste
+Iterer sur chaque element de l'array originale
+Prendre l'element itéré et l'envoyer dans la liste dont la somme est la plus petite
+
 
 LOW-LEVEL:
 
