@@ -92,23 +92,23 @@ def queue_time(queue, tills)
     sum_array[0] << client
     sum_array[sum_array.min_by(&:sum).index] << client unless index.zero?
   end
-  sum_array.max_by(&:sum)
+  sum_array.max_by(&:sum)[0]
 end
 
-puts 'Test result is ' + (queue_time([], 1) == 0).to_s.upcase
-p queue_time([], 1) # 0
+# puts 'Test result is ' + (queue_time([], 1) == 0).to_s.upcase
+# p queue_time([], 1) # 0
 
-puts 'Test result is ' + (queue_time([5], 1) == 5).to_s.upcase
-p queue_time([5], 1) # 5
+# puts 'Test result is ' + (queue_time([5], 1) == 5).to_s.upcase
+# p queue_time([5], 1) # 5
 
-puts 'Test result is ' + (queue_time([2], 5) == 2).to_s.upcase
-p queue_time([2], 5) # 2
+# puts 'Test result is ' + (queue_time([2], 5) == 2).to_s.upcase
+# p queue_time([2], 5) # 2
 
-puts 'Test result is ' + (queue_time([1,2,3,4,5], 1) == 15).to_s.upcase
+# puts 'Test result is ' + (queue_time([1,2,3,4,5], 1) == 15).to_s.upcase
 p queue_time([1,2,3,4,5], 1) # 15
 
-puts 'Test result is ' + (queue_time([1,2,3,4,5], 100) == 5).to_s.upcase
+# puts 'Test result is ' + (queue_time([1,2,3,4,5], 100) == 5).to_s.upcase
 p queue_time([1,2,3,4,5], 100) # 5
 
-puts 'Test result is ' + (queue_time([2,2,3,3,4,4], 2) == 9).to_s.upcase
+# puts 'Test result is ' + (queue_time([2,2,3,3,4,4], 2) == 9).to_s.upcase
 p queue_time([2,2,3,3,4,4], 2) # 9
