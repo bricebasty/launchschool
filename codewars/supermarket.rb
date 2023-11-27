@@ -89,13 +89,10 @@ def queue_time(queue, tills)
   tills.times { sum_array << [] }
 
   queue.each_with_index do |client, index|
-    array.slice(index.zero? ? 0 : sum_array.min_by(&:sum).index) << client
+    sum_array.slice(index.zero? ? 0 : sum_array.min_by(&:sum).index) << client
   end
   sum_array.max_by(&:sum)[0]
 end
-
-number = 1
-puts(true ? "Hey" : "Hola")
 
 # puts 'Test result is ' + (queue_time([], 1) == 0).to_s.upcase
 # p queue_time([], 1) # 0
