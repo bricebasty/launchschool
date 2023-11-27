@@ -62,7 +62,7 @@ OUTPUT: 12
 
 DATA STRUCTURES
 ----------------
-INPUT:Array, integer
+INPUT: Array, integer
 => Array
 OUTPUT: Integer
 
@@ -71,13 +71,13 @@ ALGORITHM
 
 HIGH-LEVEL:
 
-Créer n listes vides dans une liste (Array.new)
-Faire n fois
-push une array dans sum_array
-Iterer sur chaque element de l'array originale (each)
-Prendre l'element itéré et l'envoyer dans la liste dont la somme est la plus petite (min_by)
-  La liste dans queue
-Prenne la liste dont la somme est la plus grande
+Initialiser une liste vide
+Itere sur chaque element de queue
+  Si la size de la liste sum_array est strictement plus petite que la size de la liste queue
+    push le client dans sum_array
+  Sinon
+    Prendre le plus petit nombre de la liste et additionner la valeur du client
+Prendre le nombre le plus grand dans la liste
 
 LOW-LEVEL:
 
@@ -86,13 +86,9 @@ LOW-LEVEL:
 def queue_time(queue, tills)
   return 0 if queue.empty?
   sum_array = []
-  tills.times { sum_array << [] }
 
-  queue.each_with_index do |client, index|
 
-    sum_array.slice(index.zero? ? 0 : sum_array.index(sum_array.min_by(&:sum)[0])) << client
-  end
-  sum_array.max_by(&:sum)[0]
+  sum_array.max_by
 end
 
 # puts 'Test result is ' + (queue_time([], 1) == 0).to_s.upcase
