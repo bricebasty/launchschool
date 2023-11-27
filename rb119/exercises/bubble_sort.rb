@@ -81,11 +81,25 @@ Loop
     If it is, swap them and toggle the flag
     If it's not, go to next iteration
   Increment the starting index
-Break the loop if the array is false
+Break the loop if the flag is false
 
 HOW
 
 =end
+
+def bubble_sort!(array)
+  array_swapped = false
+  starting_index = 0
+  loop do
+    subarray = array[starting_index, 2]
+    if subarray[0] > subarray[1]
+
+      array_swapped = true
+    end
+    starting_index += 1
+    break if array_swapped == false
+  end
+end
 
 array = [5, 3]
 bubble_sort!(array)
