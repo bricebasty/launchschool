@@ -86,7 +86,7 @@ Break the loop if the flag is false
 HOW
 
 Swap
-  Take the first integer
+  Take
 
 =end
 
@@ -96,7 +96,6 @@ def bubble_sort!(array)
   loop do
     subarray = array.slice![starting_index, 2]
     if subarray[0] > subarray[1]
-      array << subarray[1] << subarray[0]
       array_swapped = true
     end
     starting_index += 1
