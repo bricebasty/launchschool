@@ -72,6 +72,8 @@ ALGORITHM
 HIGH-LEVEL:
 
 Créer n listes vides dans une liste (Array.new)
+Faire n fois
+push une array dans sum_array
 Iterer sur chaque element de l'array originale (each)
 Prendre l'element itéré et l'envoyer dans la liste dont la somme est la plus petite (min_by)
 Prenne la liste dont la somme est la plus grande
@@ -81,7 +83,8 @@ LOW-LEVEL:
 =end
 
 def queue_time(queue, tills)
-  sum_array = [Array.new(tills)]
+  sum_array = []
+  tills.times { sum_array << [] }
 end
 
 puts 'Test result is ' + (queue_time([], 1) == 0).to_s.upcase
