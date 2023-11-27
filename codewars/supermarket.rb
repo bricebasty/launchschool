@@ -84,7 +84,19 @@ Prendre le nombre le plus grand dans la liste
 =end
 
 def queue_time(queue, tills)
-  queue.empty? ? 0 : queue.each_with_object([]) { |e, arr| arr.size < tills ? arr << e : arr[arr.index(arr.min)] += e }.max
+  return 0 if queue.empty?
+
+  sum_array = []
+
+  queue.each do |client|
+    if sum_array.size < tills
+      sum_array << client
+    else
+      sum_array[sum_array.index(sum_array.min)] += client
+    end
+  end
+
+  sum_array.max
 end
 
 puts 'Test result is ' + (queue_time([], 1) == 0).to_s.upcase
