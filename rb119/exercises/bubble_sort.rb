@@ -91,29 +91,33 @@ Swap
 
 =end
 
+require 'pry'
+
 def bubble_sort!(array)
   loop do
     array_swapped = false
-    array.dup.each_index do |starting_index| # [6, 7, 2] -> 6, 0
-      subarray = array.slice![starting_index, 2]
+    (0...array.size - 1).each do |starting_index|
+      subarray = array.slice!(starting_index, 2)
       if subarray[0] > subarray[1]
         array.insert(starting_index, subarray[1])
+        binding.pry
         array.insert(starting_index + 1, subarray[0])
         array_swapped = true
       end
     end
     break if array_swapped == false
   end
+  array
 end
 
 array = [5, 3]
-bubble_sort!(array)
+p bubble_sort!(array)
 array == [3, 5]
 
-array = [6, 2, 7, 1, 4]
-bubble_sort!(array)
-array == [1, 2, 4, 6, 7]
+# array = [6, 2, 7, 1, 4]
+# bubble_sort!(array)
+# array == [1, 2, 4, 6, 7]
 
-array = %w(Sue Pete Alice Tyler Rachel Kim Bonnie)
-bubble_sort!(array)
-array == %w(Alice Bonnie Kim Pete Rachel Sue Tyler)
+# array = %w(Sue Pete Alice Tyler Rachel Kim Bonnie)
+# bubble_sort!(array)
+# array == %w(Alice Bonnie Kim Pete Rachel Sue Tyler)
