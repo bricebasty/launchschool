@@ -57,19 +57,32 @@ RULES:
 EXAMPLES
 ---
 INPUT: [6, 7, 2]
-=> 6 > 2 ? y -> 2, 6
-=> 6
+=> 6 > 7 ? n
+=> 7 > 2 ? y -> [6, 2, 7]
+=> 6 > 2 ? y -> [2, 6, 7]
+=>
 OUTPUT [2, 6, 7]
 
 DATA STRUCTURES
 ---
-INPUT
-=>
-OUTPUT
+INPUT Array
+=> Array
+OUTPUT Array
 
 ALGORITHM
 ---
 WHAT
+
+Initialize a flag to check if the array has been swapped
+
+Loop
+  Take 2 integers in the array from a starting index for a size of 2
+  Check if the first is greater than the second
+    If it is, swap them and toggle the flag
+    If it's not, go to next iteration
+  Increment the starting index
+Break the loop if the array is false
+
 HOW
 
 =end
