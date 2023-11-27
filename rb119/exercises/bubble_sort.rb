@@ -92,9 +92,9 @@ Swap
 =end
 
 def bubble_sort!(array)
-  array_swapped = false
   starting_index = 0
   loop do
+    array_swapped = false
     subarray = array.slice![starting_index, 2]
     if subarray[0] > subarray[1]
       array.insert(starting_index, subarray[1])
