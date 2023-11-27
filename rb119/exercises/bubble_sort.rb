@@ -97,8 +97,7 @@ def bubble_sort!(array)
   loop do
     array_swapped = false
     (0...array.size - 1).each do |index|
-      subarray = array.slice!(index, 2)
-      if subarray[0] > subarray[1]
+      if array[index] > array[index + 1]
         array[index], array[index + 1] = array[index + 1], array[index]
         array_swapped = true
       end
