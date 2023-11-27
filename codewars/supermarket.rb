@@ -84,10 +84,12 @@ LOW-LEVEL:
 =end
 
 def queue_time(queue, tills)
+  return 0 if queue.empty?
   sum_array = []
   tills.times { sum_array << [] }
 
   queue.each { |client| sum_array[sum_array.min_by(&:sum).index] << client }
+  sum_array.max_by(&:sum)
 end
 
 puts 'Test result is ' + (queue_time([], 1) == 0).to_s.upcase
