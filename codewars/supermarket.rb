@@ -85,7 +85,9 @@ LOW-LEVEL:
 
 def queue_time(queue, tills)
   return 0 if queue.empty?
+
   sum_array = []
+
   queue.each do |client|
     if sum_array.size < tills
       sum_array << client
