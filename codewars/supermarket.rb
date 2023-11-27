@@ -76,6 +76,7 @@ Faire n fois
 push une array dans sum_array
 Iterer sur chaque element de l'array originale (each)
 Prendre l'element itéré et l'envoyer dans la liste dont la somme est la plus petite (min_by)
+  La liste dans queue 
 Prenne la liste dont la somme est la plus grande
 
 LOW-LEVEL:
@@ -86,7 +87,7 @@ def queue_time(queue, tills)
   sum_array = []
   tills.times { sum_array << [] }
 
-  queue.each { |client| sum_array[] << client }
+  queue.each { |client| sum_array << client }
 end
 
 puts 'Test result is ' + (queue_time([], 1) == 0).to_s.upcase
