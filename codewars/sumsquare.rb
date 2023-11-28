@@ -40,10 +40,12 @@ Substract to the result
 
 LOW-LEVEL:
 
+
+
 =end
 
 def sum_square_difference(integer)
-
+  (1..integer).send(:+)**2
 end
 
 
