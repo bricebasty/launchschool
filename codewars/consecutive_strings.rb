@@ -62,10 +62,12 @@ For each consecutive k strings in strarr with object str
 
 def longest_consec(strarr, k)
   return "" if k <= 0 || k > strarr.size || strarr.empty?
-  strarr.each_cons(k).with_object("") do |cons, str|
+  str = ""
+  strarr.each_cons(k) do |cons|
     cons_string = cons.join
     str = cons_string if cons_string.size > str.size
   end
+  str
 end
 
 p longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 2) # "abigailtheta"
