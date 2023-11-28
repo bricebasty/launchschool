@@ -45,9 +45,8 @@ LOW-LEVEL:
 =end
 
 def sum_square_difference(integer)
-  (1..integer).sum**2 - (1..integer).sum { |e| e**2 }
+  ((1..integer).sum**2) - (1..integer).sum { |e| e**2 }
 end
-
 
 p sum_square_difference(3) == 22 # -> (1 + 2 + 3)**2 - (1**2 + 2**2 + 3**2)
 p sum_square_difference(10) == 2640
