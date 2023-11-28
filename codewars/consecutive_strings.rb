@@ -35,7 +35,7 @@ RULES:
 EXAMPLES
 ----------------
 INPUT: ["zone", "abigail", "theta", "form", "libe", "zas"], 2
-=>
+=> "zoneabigail" -> size : 11
 =>
 OUTPUT: "abigailtheta"
 
