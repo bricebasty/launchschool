@@ -26,11 +26,11 @@
 =begin
 PROBLEM
 ----------------
-INPUT:
-OUTPUT:
+INPUT: Array of strings, number of consecutive strings
+OUTPUT: Longest consecutive strings
 
 RULES:
--
+- Return empty string is number is negative or 0 or bigger than array size or array is empty
 
 EXAMPLES
 ----------------
@@ -55,6 +55,10 @@ HIGH-LEVEL:
 LOW-LEVEL:
 
 =end
+
+def longest_consec(strarr, k)
+  return "" if k <= 0 || k > strarr.size || strarr.empty?
+end
 
 longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 2) # "abigailtheta"
 longest_consec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1) # "oocccffuucccjjjkkkjyyyeehh"
