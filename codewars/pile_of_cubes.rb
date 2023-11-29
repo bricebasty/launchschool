@@ -61,7 +61,7 @@ LOW-LEVEL:
 =end
 
 def find_nb(m)
-  square_root = Math.sqrt(m)
+  square_root = Math.sqrt(m.to_f)
   return -1 unless square_root == square_root.to_i
   result = 1
   n = 1
