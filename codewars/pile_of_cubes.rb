@@ -60,16 +60,16 @@ LOW-LEVEL:
 
 =end
 
+
+
 def find_nb(m)
-  square_root = Math.sqrt(m.to_f)
-  return -1 unless square_root == square_root.to_i
-  result = 1
-  n = 1
-  until result == square_root
-    n += 1
-    result += n
+  target = Math.sqrt(2 * Math.sqrt(m.to_f)).to_i
+
+  if (target * (target + 1) / 2) * (target * (target + 1) / 2) == m
+    return target
+  else
+    return nil
   end
-  n
 end
 
 
