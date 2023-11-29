@@ -75,8 +75,8 @@ end
 puts 'Test result is ' + (find_nb(4183059834009) == 2022).to_s.upcase
 p find_nb(4183059834009) # 2022
 
-# puts 'Test result is ' + (find_nb(24723578342962) == -1).to_s.upcase
-# p find_nb(24723578342962) # -1
+puts 'Test result is ' + (find_nb(24723578342962) == -1).to_s.upcase
+p find_nb(24723578342962) # -1
 
 puts 'Test result is ' + (find_nb(135440716410000) == 4824).to_s.upcase
 p find_nb(135440716410000) # 4824
