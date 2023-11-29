@@ -56,6 +56,7 @@ LOW-LEVEL:
 
 def find_nb(m)
   return -1 unless Math.sqrt(m) == Math.sqrt(m).to_i
+  
 end
 
 puts 'Test result is ' + (find_nb(4183059834009) == 2022).to_s.upcase
