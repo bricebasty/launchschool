@@ -21,10 +21,21 @@ RULES:
 
 EXAMPLES
 ----------------
-INPUT:
+INPUT: 100
+=> V100 = 10
 =>
+OUTPUT: 4
+
+INPUT: 36
+=> V36 = 6
+=> 3**3 + 2**3 + 1**3
+OUTPUT: 3
+
+INPUT: 9
+=> V9 = 3
 =>
-OUTPUT:
+=> 2**3 + 1**3
+OUTPUT: 2
 
 DATA STRUCTURES
 ----------------
@@ -43,6 +54,9 @@ LOW-LEVEL:
 
 =end
 
+def find_nb(m)
+  return -1 unless Math.sqrt(m) == Math.sqrt(m).to_i
+end
 
 puts 'Test result is ' + (find_nb(4183059834009) == 2022).to_s.upcase
 p find_nb(4183059834009) # 2022
