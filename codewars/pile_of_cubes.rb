@@ -62,8 +62,8 @@ LOW-LEVEL:
 
 def find_nb(m)
   square_root = Math.sqrt(m)
-  n = 1
-  iterator = 2
+  result = 1
+  n = 2
   until n == square_root
     n
     iterator += 1
