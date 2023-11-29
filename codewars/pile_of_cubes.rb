@@ -65,8 +65,8 @@ def find_nb(m)
   result = 1
   n = 2
   until n == square_root
-    n += iterator
-    iterator += 1
+    result += n
+    n += 1
   end
 end
 
