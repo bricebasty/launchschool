@@ -23,18 +23,24 @@ EXAMPLES
 ----------------
 INPUT: 100
 => V100 = 10
-=>
+=> 10
+=> 1 (+ 2)
+=> 3 (+ 3)
+=> 6 (+ 4)
+=> 10
+=> 1 + 2 + 3 + 4
 OUTPUT: 4
 
 INPUT: 36
 => V36 = 6
-=> 3**3 + 2**3 + 1**3
+=> 6
+=> 3 + 2 + 1
 OUTPUT: 3
 
 INPUT: 9
 => V9 = 3
-=>
-=> 2**3 + 1**3
+=> 3
+=> 2 + 1
 OUTPUT: 2
 
 DATA STRUCTURES
@@ -55,8 +61,13 @@ LOW-LEVEL:
 =end
 
 def find_nb(m)
-  return -1 unless Math.sqrt(m) == Math.sqrt(m).to_i
-  
+  square_root = Math.sqrt(m)
+  n = 1
+  iterator = 2
+  until n == square_root
+    n
+    iterator += 1
+  end
 end
 
 puts 'Test result is ' + (find_nb(4183059834009) == 2022).to_s.upcase
