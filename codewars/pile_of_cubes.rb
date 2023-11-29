@@ -72,6 +72,10 @@ def find_nb(m)
   n
 end
 
+def find_nb(m)
+  Math.sqrt(2 * (Math.sqrt(1.0 * m))).to_i
+end
+
 puts 'Test result is ' + (find_nb(4183059834009) == 2022).to_s.upcase
 p find_nb(4183059834009) # 2022
 
