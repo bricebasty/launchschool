@@ -68,6 +68,7 @@ def find_nb(m)
     result += n
     n += 1
   end
+  n
 end
 
 puts 'Test result is ' + (find_nb(4183059834009) == 2022).to_s.upcase
