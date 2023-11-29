@@ -68,7 +68,7 @@ def find_nb(m)
   if (target * (target + 1) / 2) * (target * (target + 1) / 2) == m
     return target
   else
-    return nil
+    return -1
   end
 end
 
