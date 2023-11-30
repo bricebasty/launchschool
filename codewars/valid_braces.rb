@@ -31,8 +31,17 @@ RULES:
 EXAMPLES
 ----------------
 INPUT: "[(])"
-=> { "()": , '{}':, '[]': }
-=>
+=> [ ok
+=> ( ok
+=> ] not ok
+OUTPUT: false
+
+INPUT: "([{}])"
+=> '(' -> "("
+=> '[' -> '(['
+=> '{' -> '([{'
+=> '}' -> '(['
+=> ')' -> '
 OUTPUT: false
 
 DATA STRUCTURES
@@ -48,23 +57,28 @@ NOTES:
 
 HIGH-LEVEL:
 
+Take each char in the string
+  If it's an opening character
+    add it to a storing string
+  If it's a closing character and the last character in the storing stirng is not the same
+    return false
+  If it's a closing character and the last character in the stroing string is the same
+    remove the last character in the storing string
+
+
 LOW-LEVEL:
 
 =end
 
 def validBraces(braces)
-  parentheses = []
-  opened_parentheses_index = 0
-  closed_parentheses_index = 0
-  string.each_char do |char|
-    return false if char.match?(/[\)\]\}]/) && (parentheses.empty? || parentheses[closed_parentheses_index].nil?)
-    if char.match?(/[\(\[\{]/)
-      parentheses[opened_parentheses_index] = char
-      opened_parentheses_index += 1
-    elsif char.match?(/[\)\]\}]/)
-      parentheses[closed_parentheses_index] << char
-      closed_parentheses_index += 1
+  storing_string = ""
+  braces.each_char do |char|
+    return false if
+    case braces
+    when /[\(\[\{]/ then storing_string << char
+    when /[\)\]\}]/ then storing_string.slice!(0..-2)
     end
+  end
 end
 
 parentheses.all? { |element| element.size.even? }
