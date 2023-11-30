@@ -78,7 +78,7 @@ def validBraces(braces)
 
     braces.match?(/[\(\[\{]/) ? storing_string << char : storing_string.slice!(0..-2)
   end
-
+  true
 end
 
 
