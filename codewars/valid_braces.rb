@@ -73,7 +73,7 @@ LOW-LEVEL:
 def validBraces(braces)
   storing_string = ""
   braces.each_char do |char|
-    return false if
+    return false if char =~ /[\)\]\}]/ && storing_string
     case braces
     when /[\(\[\{]/ then storing_string << char
     when /[\)\]\}]/ then storing_string.slice!(0..-2)
