@@ -19,9 +19,55 @@
 # "[(])"     =>  False
 # "[({})](]" =>  False
 
+=begin
+PROBLEM
+----------------
+INPUT: String
+OUTPUT: Boolean
+
+RULES:
+-
+
+EXAMPLES
+----------------
+INPUT: "[(])"
+=> { "()": , '{}':, '[]': }
+=>
+OUTPUT: false
+
+DATA STRUCTURES
+----------------
+INPUT:
+=>
+OUTPUT:
+
+ALGORITHM
+----------------
+
+NOTES:
+
+HIGH-LEVEL:
+
+LOW-LEVEL:
+
+=end
+
 def validBraces(braces)
-  # TODO
+  parentheses = []
+  opened_parentheses_index = 0
+  closed_parentheses_index = 0
+  string.each_char do |char|
+    return false if char.match?(/[\)\]\}]/) && (parentheses.empty? || parentheses[closed_parentheses_index].nil?)
+    if char.match?(/[\(\[\{]/)
+      parentheses[opened_parentheses_index] = char
+      opened_parentheses_index += 1
+    elsif char.match?(/[\)\]\}]/)
+      parentheses[closed_parentheses_index] << char
+      closed_parentheses_index += 1
+    end
 end
+
+parentheses.all? { |element| element.size.even? }
 
 p validBraces( "()" ) # => true
 p validBraces( "[(])" ) # => false
