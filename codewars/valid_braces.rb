@@ -76,10 +76,7 @@ def validBraces(braces)
   braces.each_char do |char|
     return false if char =~ /[\)\]\}]/ && storing_string[-1] != pairs[char]
 
-    case braces
-    when /[\(\[\{]/ then storing_string << char
-    when /[\)\]\}]/ then storing_string.slice!(0..-2)
-    end
+    braces.match?(/[\(\[\{]/) ? storing_string << char : storing_string.slice!(0..-2)
   end
 
 end
