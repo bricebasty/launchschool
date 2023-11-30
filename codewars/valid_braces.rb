@@ -81,7 +81,6 @@ def validBraces(braces)
 
 end
 
-parentheses.all? { |element| element.size.even? }
 
 p validBraces( "()" ) # => true
 p validBraces( "[(])" ) # => false
