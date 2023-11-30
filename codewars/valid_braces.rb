@@ -84,3 +84,4 @@ end
 
 p validBraces( "()" ) # => true
 p validBraces( "[(])" ) # => false
+p validBraces ('"([{}])"') # true
