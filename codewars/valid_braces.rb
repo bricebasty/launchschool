@@ -71,14 +71,14 @@ LOW-LEVEL:
 =end
 
 def validBraces(braces)
-  storing_string = ""
+  stack = []
   pairs = { ")" => "(", "}" => "{", "]" => "[" }
   braces.each_char do |char|
-    return false if char =~ /[\)\]\}]/ && storing_string[-1] != pairs[char]
+    return false if char =~ /[\)\]\}]/ && stack[-1] != pairs[char]
 
-    char.match?(/[\(\[\{]/) ? storing_string << char : storing_string.slice!(-1)
+    char.match?(/[\(\[\{]/) ? stack << char : stack.pop
   end
-  true
+  stack.empty?
 end
 
 
