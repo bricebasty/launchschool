@@ -72,13 +72,16 @@ LOW-LEVEL:
 
 def validBraces(braces)
   storing_string = ""
+  pairs = { ")" => "(", "}" => "{", "]" => "[" }
   braces.each_char do |char|
-    return false if char =~ /[\)\]\}]/ && storing_string
+    return false if char =~ /[\)\]\}]/ && storing_string[-1] != pairs[char]
+
     case braces
     when /[\(\[\{]/ then storing_string << char
     when /[\)\]\}]/ then storing_string.slice!(0..-2)
     end
   end
+
 end
 
 parentheses.all? { |element| element.size.even? }
